@@ -26,8 +26,12 @@ function play() {
     // $('#menu').css('display','none');
     $(shown).css('display', 'none');
     shown = game;
-    window.addEventListener('keydown', showMenu);
-
+    $(document).on( 
+        'keydown', function(event) { 
+          if (event.key == "Escape") { 
+              showMenu();
+          } 
+      }); 
 }
 
 function show(obj) {
