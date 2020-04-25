@@ -1,6 +1,6 @@
 #game{
     border: solid black;
-    background-image: url('/images/backgrounds/grid.png');
+    background-image: url('../images/backgrounds/grid.png');
     /* background-color: black; */
     background-size: cover;
     width: 600px;
