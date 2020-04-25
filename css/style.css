@@ -89,14 +89,17 @@
 }
 
 
-/* footer{
-    width: 950px;
-    height: 20px;
-    margin: auto;
-    background-color: black;
-} */
 
 .btn_movetoSettings{
     size: 800px;
     display: none;
+}
+
+footer{
+    width: 950px;
+    height: 50px;
+    margin: auto;
+    background-color: black;
+    text-align: center;
+    color: gainsboro;
 }
