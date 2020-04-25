@@ -1,3 +1,4 @@
+
 .allSite {
     width: 950px;
     height: 628px;
@@ -11,6 +12,7 @@
     /* border: solid gainsboro; */
     border-style: ridge;
     padding: 5px;
+    font-size: 15px;
 }
 
 .col {

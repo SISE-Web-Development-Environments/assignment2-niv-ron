@@ -9,6 +9,7 @@ $(document).ready(function() {
     //SHOW: menu, welcome
     showMenu();
 
+    sessionStorage.clear();
     localStorage.clear();
     buildUsersList();
 })
