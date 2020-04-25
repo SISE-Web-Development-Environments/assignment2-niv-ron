@@ -58,6 +58,9 @@ function disconnect() {
     isConnected = false;
     this.user = '';
     showMenu();
+
+    $('#game_grid').css('display', 'none');
+    $('.content').css('display', 'block');
 }
 
 function isAuthentication(username, password) {

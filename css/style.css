@@ -95,3 +95,8 @@
     margin: auto;
     background-color: black;
 } */
+
+.btn_movetoSettings{
+    size: 800px;
+    display: none;
+}

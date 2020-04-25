@@ -71,18 +71,19 @@ function showContent() {
 }
 
 function showMenu() {
-    // alert("ron");
     $('.content').css('display', 'block');
     if (isConnected) {
         $('#menu1').css('display', 'none');
         $('#menu2').css('display', 'block');
         $('#btn_logoff').css('display', 'block');
         $('#welcome_msg').html('Welcome <b>' + user.username + '!</b>');
+        $('#btn_startgame').css('display', 'block');
     } else {
         $('#menu1').css('display', 'block');
         $('#menu2').css('display', 'none');
         $('#btn_logoff').css('display', 'none');
         $('#welcome_msg').html('Welcome!');
+        $('#btn_startgame').css('display', 'none');
     }
     show('welcome');
 }

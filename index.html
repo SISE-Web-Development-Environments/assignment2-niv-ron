@@ -16,6 +16,7 @@
     <script type="text/javascript" src="scripts/login.js"></script>
     <script type="text/javascript" src="scripts/register.js"></script>
     <script type="text/javascript" src="scripts/storageManager.js"></script>
+    <script type="text/javascript" src="scripts/settings.js"></script>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -68,6 +69,9 @@
                             <a id="button_profile" class="nav-link" href="#" onClick="show('profile')">Profile</a>
                         </li>
                         <li class="nav-item menu-button">
+                            <a id="button_settings" class="nav-link" href="#" onClick="show('settings')">Settings</a>
+                        </li>
+                        <li class="nav-item menu-button">
                             <a id="button_about" class="nav-link" href="#" data-toggle="modal"
                                 data-target="#about">About</a>
                         </li>
@@ -93,7 +97,7 @@
                     <br><b>GOOD LUCK!</b>
                 </div>
                 <table>
-                    <td><button type="button" class="btn btn-primary" id="btn_startgame" onclick="btn_startgame()">Start
+                    <td><button type="button" class="btn btn-primary" id="btn_startgame" onClick="show('settings')">Start
                             Game</button></td>
                     <td><button type="button" class="btn btn-primary" id="btn_logoff" onclick="disconnect()">Log
                             Off</button></td>
@@ -157,6 +161,7 @@
                     </div>
                 </div>
 
+                <button type="button" class="btn btn-primary" onClick="show('settings')">StartGame</button>
                 <button type="button" class="btn btn-primary">Update</button>
                 <button type="button" class="btn btn-primary" onclick="disconnect()">Log Off</button>
 
@@ -245,9 +250,61 @@
                     </div>
                 </div>
                 <button type="button" class="btn btn-primary" onclick="connect_btn()">Connect</button>
-                <button type="button" class="btn btn-primary" onclick="play()">Start Play!</button>
+                <!-- <button type="button" class="btn btn-primary" onclick="play()">Start Play!</button> -->
             </div>
 
+
+            
+            <div id="settings" class="col">
+                <div class="accordion" id="accordionExample">
+                    <div class="card">
+                        <div class="card-header" id="headingOne">
+                            <h4 class="mb-0">
+                                <button class="btn btn-link btn_set" type="button" data-toggle="collapse" data-target="#collapseOne"
+                                    aria-expanded="true" aria-controls="collapseOne">
+                                    KEYS
+                                </button>
+                            </h4>
+                        </div>
+            
+                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                            <div class="card-body">
+                                <div>
+                                    <button id="in1" maxlength="1" onkeyup="setKeyCode(event,'1')">left</button>
+                                    <p id="p1"></p>
+                                </div>
+                                <div>
+                                    <button id="in2" maxlength="1" onkeydown="setKeyCode(event,'2')">right</button>
+                                    <p id="p2"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            
+            
+            
+            
+                    <div class="card">
+                        <div class="card-header" id="headingTwo">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                    data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Power Pellets | Monsters | Set Time
+                                </button>
+                            </h2>
+                        </div>
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                            <div class="card-body">
+            
+                            </div>
+                        </div>
+                    </div>
+            
+            
+                </div>
+                <button type="button" class="btn btn-primary" id="btn_startgame" onclick="btn_startgame()">Start
+                    Game</button></td>
+            </div>
 
         </div>
 
