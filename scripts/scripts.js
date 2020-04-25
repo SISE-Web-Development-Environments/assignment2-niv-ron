@@ -86,5 +86,5 @@ function showMenu() {
         $('#welcome_msg').html('Welcome!');
         $('#btn_startgame').css('display', 'none');
     }
-    show('welcome');
+    show('profile');
 }
