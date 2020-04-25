@@ -9,7 +9,7 @@ $(document).ready(function() {
     //SHOW: menu, welcome
     showMenu();
 
-    // localStorage.clear();
+    localStorage.clear();
     buildUsersList();
 })
 
