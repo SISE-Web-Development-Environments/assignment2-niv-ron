@@ -1,11 +1,10 @@
 .allSite {
     width: 950px;
-    height: 625px;
+    height: 610px;
     margin: 0 auto;
     border: black solid;
 
-    /* background-color: bisque; */
-    background-image: url('../_images/_backgrounds/background.jpg');
+    background-image: url('../images/backgrounds/background.jpg');
     background-size: cover;
 }
 
@@ -41,7 +40,8 @@
     text-align: center;
 }
 
-.game {
+
+/* .game {
     border: solid black;
     width: 800px;
     height: auto;
@@ -51,7 +51,7 @@
     left: 0;
 	right: 0;
     z-index: 0;
-}
+} */
 
 .hide {
     display: none;
@@ -60,6 +60,8 @@
 .menu-button{
     min-width: 100px;
     margin-right: 20px;
+    float: left;
+    margin: auto;
 }
 
 .nav-link {
@@ -80,3 +82,10 @@
 .unhide {
     display: block;
 }
+
+/* footer{
+    width: 950px;
+    height: 20px;
+    margin: auto;
+    background-color: black;
+} */

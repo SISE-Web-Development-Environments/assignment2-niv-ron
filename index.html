@@ -1,51 +1,49 @@
 <!DOCTYPE html>
 
 <head>
-<title>PacMan - Browser Game</title>
+    <title>PacMan - Browser Game</title>
+    <link rel="icon" href="https://seeklogo.com/images/P/pac-man-retro-logo-731613766E-seeklogo.com.png"
+        type="image/x-icon">
 
-    <link rel="stylesheet" type="text/css" href="./_css/style.css" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/game.css" />
+    <link rel="stylesheet" type="text/css" href="css/register.css" />
 
-    <link rel="stylesheet" type="text/css" href="./_css/style-register.css" />
+    <script src="scripts/jquery-3.4.1.slim.min.js"></script>
+    <script type="text/javascript" src="scripts/app.js"></script>
 
-    <script src="./_scripts/jquery-3.4.1.slim.min.js"></script>
-    <script type="text/javascript" src="./_scripts/app.js"></script>
-
-    <script type="text/javascript" src="./_scripts/jquery.js"></script>
-    <script type="text/javascript" src="./_scripts/scripts.js"></script>
-
-
-    <script type="text/javascript" src="./_scripts/login.js"></script>
-
-    <!-- Login : Date Picker -->
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="/resources/demos/style.css">
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script type="text/javascript" src="scripts/scripts.js"></script>
+    <script type="text/javascript" src="scripts/login.js"></script>
+    <script type="text/javascript" src="scripts/register.js"></script>
+    <script type="text/javascript" src="scripts/storageManager.js"></script>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <!-- Bootstrap JS -->
+    <!-- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script> -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
-
-
 </head>
 
 <body>
     <div class="allSite">
         <div class="content">
+
             <div class="top">
-                <img src="_images/logo.png">
-                <div id="menu" class="menu">
-                    <ul class="nav nav-tabs">
+                <img src="images/logo.png">
+
+                <div id="menu1" class="menu">
+                    <ul class="nav nav-tabs n1">
                         <li class="nav-item menu-button">
                             <a id="button_welcome" class="nav-link" href="#" onClick="show('welcome')">Welcome</a>
                         </li>
-
                         <li class="nav-item menu-button">
                             <a id="button_register" class="nav-link" href="#" onClick="show('register')">Register</a>
                         </li>
@@ -58,113 +56,191 @@
                             <a id="button_about" class="nav-link" href="#" data-toggle="modal"
                                 data-target="#about">About</a>
                         </li>
+                    </ul>
+                </div>
 
+                <div id="menu2" class="menu">
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item menu-button">
+                            <a id="button_welcome" class="nav-link" href="#" onClick="show('welcome')">Welcome</a>
+                        </li>
+                        <li class="nav-item menu-button">
+                            <a id="button_profile" class="nav-link" href="#" onClick="show('profile')">Profile</a>
+                        </li>
+                        <li class="nav-item menu-button">
+                            <a id="button_about" class="nav-link" href="#" data-toggle="modal"
+                                data-target="#about">About</a>
+                        </li>
                     </ul>
                 </div>
             </div>
 
 
-            <div id="welcome" class="col">
 
+            <div id="welcome" class="col">
+                <p id="welcome_msg">
+
+                </p>
+                <table>
+                    <td><button type="button" class="btn btn-primary" id="btn_startgame" onclick="btn_startgame()">Start
+                            Game</button></td>
+                    <td><button type="button" class="btn btn-primary" id="btn_logoff" onclick="disconnect()">Log
+                            Off</button></td>
+                </table>
+            </div>
+
+            <div id="profile" class="col">
+                <fieldset disabled>
+                    <div class="row">
+                        <div class="col-25">
+                            <label>User Name</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" id="profile_username">
+                        </div>
+                    </div>
+                </fieldset>
+                <div class="row">
+                    <div class="col-25">
+                        <label>Email</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="email" id="profile_email">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-25">
+                        <label>First Name</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" id="profile_fname">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-25">
+                        <label>Last Name</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" id="profile_lname">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-25">
+                        <label for="bday">Birth Date</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" id="profile_bday">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-25">
+                        <label>New Password</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="password" id="profile_pass">
+                    </div>
+                </div>
+
+                <button type="button" class="btn btn-primary">Update</button>
+                <button type="button" class="btn btn-primary" onclick="disconnect()">Log Off</button>
 
             </div>
 
-
-
             <div id="register" class="col">
-                <form action="">
+                <div id="register_errors" class="register_errors"></div>
+                <form id="registerForm">
                     <div class="row">
                         <div class="col-25">
-                            <label for="userName">User Name</label>
+                            <label>User Name</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" id="userName" name="userName" placeholder="">
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-25">
-                            <label for="password">Password</label>
-                        </div>
-                        <div class="col-75">
-                            <input type="password" id="password" name="password" placeholder="">
+                            <input type="text" id="register_username">
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-25">
-                            <label for="fname">First Name</label>
+                            <label>Password</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" id="fname" name="fname" placeholder="">
+                            <input type="password" id="register_password">
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-25">
-                            <label for="lname">Last Name</label>
+                            <label>First Name</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" id="lname" name="lname" placeholder="">
+                            <input type="text" id="register_fname">
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-25">
-                            <label for="email">Email</label>
+                            <label>Last Name</label>
                         </div>
                         <div class="col-75">
-                            <input type="email" id="fullName" name="fullName" placeholder="">
+                            <input type="text" id="register_lname">
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-25">
-                            <label for="bday">Birth Date</label>
+                            <label>Email</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" id="datepicker" name="birthDay" placeholder="">
+                            <input type="email" id="register_email">
                         </div>
                     </div>
 
-
                     <div class="row">
-                        <input type="submit" value="Submit">
+                        <div class="col-25">
+                            <label>Birth Date</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="date" id="register_bday" name="birthday">
+                        </div>
                     </div>
 
-                    <button class="testButton1"><img src="./_images/pngfuel.com.png" style="width: 100px;" alt=""></button>
-                    <button class="testButton1"><img src="./_images/_gifs/2.gif" style="width: 100px;" alt=""></button>
-
+                    <div class="row">
+                        <button type="button" class="btn btn-primary btn_regist" onclick="btn_regist()">create new
+                            Pacman</button>
+                    </div>
                 </form>
-
-
-
             </div>
 
             <div id="login" class="col">
                 <div class="row">
                     <div class="col-25">
-                        <label for="userName">User Name</label>
+                        <label>User Name</label>
                     </div>
                     <div class="col-75">
-                        <input type="text" id="userName" name="userName" placeholder="">
+                        <input type="text" id="login_username">
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-25">
-                        <label for="password">Password</label>
+                        <label>Password</label>
                     </div>
                     <div class="col-75">
-                        <input type="password" id="password" name="password" placeholder="">
+                        <input type="password" id="login_pass">
                     </div>
                 </div>
-
-
-                <button onclick="play()">Start Play!</button>
+                <button type="button" class="btn btn-primary" onclick="connect_btn()">Connect</button>
+                <button type="button" class="btn btn-primary" onclick="play()">Start Play!</button>
             </div>
 
+
         </div>
+
+
+
 
         <!-- Modal -->
         <div class="modal fade" id="about" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -173,7 +249,8 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="showContent()">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                            onclick="showContent()">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
@@ -181,35 +258,92 @@
                         ...
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="showContent()">Close</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                            onclick="showContent()">Close</button>
                     </div>
                 </div>
             </div>
         </div>
 
 
+
+
         <div id="game_grid" class="game">
-            <table>
-                <tr>
-                    <td>
-                        <div id="score">
-                            <label for="lblScore">SCORE:</label>
-                            <input id="lblScore" type="text" />
-                        </div>
+            <div>
+                <div class="box-left">
+                    <table>
+                        <tr>
+                            <div id="score">
+                                <label for="lblScore">SCORE:</label>
+                                <input id="lblScore" type="text" />
+                            </div>
+                        </tr>
+                        <tr>
+                            <div id="time">
+                                <label for="lblTime">TIME:</label>
+                                <input id="lblTime" type="text" />
+                            </div>
+                        </tr>
+                    </table>
+                </div>
 
-                    </td>
-                    <td>
-                        <div id="time">
-                            <label for="lblTime">TIME:</label>
-                            <input id="lblTime" type="text" />
-                        </div>
-                    </td>
-                </tr>
-            </table>
-
-            <div id="game">
-                <canvas id="canvas" height="600" width="600"></canvas>
+                <div id="game">
+                    <canvas id="canvas" height="600" width="600"></canvas>
+                </div>
             </div>
         </div>
+
     </div>
+
+
+<!-- Footer -->
+<footer class="page-footer font-small special-color-dark pt-4">
+
+    <!-- Footer Elements -->
+    <div class="container">
+  
+      <!-- Social buttons -->
+      <ul class="list-unstyled list-inline text-center">
+        <li class="list-inline-item">
+          <a class="btn-floating btn-fb mx-1">
+            <i class="fab fa-facebook-f"> </i>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a class="btn-floating btn-tw mx-1">
+            <i class="fab fa-twitter"> </i>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a class="btn-floating btn-gplus mx-1">
+            <i class="fab fa-google-plus-g"> </i>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a class="btn-floating btn-li mx-1">
+            <i class="fab fa-linkedin-in"> </i>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a class="btn-floating btn-dribbble mx-1">
+            <i class="fab fa-dribbble"> </i>
+          </a>
+        </li>
+      </ul>
+      <!-- Social buttons -->
+  
+    </div>
+    <!-- Footer Elements -->
+  
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2020 Copyright:
+      <a href="https://mdbootstrap.com/"> MDBootstrap.com</a>
+    </div>
+    <!-- Copyright -->
+  
+  </footer>
+  <!-- Footer -->
+
+
+
 </body>
