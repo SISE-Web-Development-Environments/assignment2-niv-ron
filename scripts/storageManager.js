@@ -12,15 +12,15 @@ function buildUsersList() {
         this.users = getStorage("users");
         this.passwords = getStorage("passwords");
         this.emails = getStorage("emails");
-        this.fNames = getStorage("fnames");
-        this.lNames = getStorage("lnames");
+        this.fnames = getStorage("fnames");
+        this.lnames = getStorage("lnames");
         this.birthdays = getStorage("birthdays");
     } else {
         this.users = ['p'];
         this.passwords = ['p'];
         this.emails = [''];
-        this.fNames = [''];
-        this.lNames = [''];
+        this.fnames = [''];
+        this.lnames = [''];
         this.birthdays = [''];
         updateLocalStorage();
     }

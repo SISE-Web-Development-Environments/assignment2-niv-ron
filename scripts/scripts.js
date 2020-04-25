@@ -17,7 +17,7 @@ function btn_startgame() {
     if (this.isConnected)
         play();
     else
-        alert();
+        alert("please connect first.");
 
 }
 
@@ -28,8 +28,8 @@ function updateLocalStorage() {
     localStorage.setItem("passwords", JSON.stringify(this.passwords));
     localStorage.setItem("emails", JSON.stringify(this.emails));
     localStorage.setItem("birthdays", JSON.stringify(this.birthdays));
-    localStorage.setItem("fNames", JSON.stringify(this.fNames));
-    localStorage.setItem("lNames", JSON.stringify(this.lNames));
+    localStorage.setItem("fnames", JSON.stringify(this.fnames));
+    localStorage.setItem("lnames", JSON.stringify(this.lnames));
 }
 
 function hideContent() {

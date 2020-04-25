@@ -15,8 +15,8 @@ function addNewUser() {
 	this.passwords.push(newUser.pass);
 	this.emails.push(newUser.email);
 	this.birthdays.push(newUser.bday);
-	this.fNames.push(newUser.fname);
-	this.lNames.push(newUser.lname);
+	this.fnames.push(newUser.fname);
+	this.lnames.push(newUser.lname);
 	updateLocalStorage();
 }
 

@@ -2,8 +2,8 @@ var users;
 var passwords;
 var emails;
 var birthdays;
-var fNames;
-var lNames;
+var fnames;
+var lnames;
 
 //LOGIN FIELDS:
 var loginFormFields;
@@ -41,8 +41,8 @@ function connect(username, password) {
             username: JSON.parse(localStorage["users"])[index],
             pass: JSON.parse(localStorage["passwords"])[index],
             email: JSON.parse(localStorage["emails"])[index],
-            fname: JSON.parse(localStorage["fNames"])[index],
-            lname: JSON.parse(localStorage["lNames"])[index],
+            fname: JSON.parse(localStorage["fnames"])[index],
+            lname: JSON.parse(localStorage["lnames"])[index],
             bday: JSON.parse(localStorage["birthdays"])[index]
         };
 
