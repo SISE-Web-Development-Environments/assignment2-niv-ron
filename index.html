@@ -81,6 +81,17 @@
                 <p id="welcome_msg">
 
                 </p>
+                <div class="welcome_text">
+                    Your <b>Pac-Man</b> must eat <u>all of the dots</u> inside an enclosed maze while avoiding 1 to 4
+                    colored ghosts.
+                    <br> Eating those dots called "Power Pellets" give your Pac-Man bonus of by 5, 15, 25 points.
+                    <br> If your Pac-Man makes contact with a ghost, he will <u>lose a life</u>,<br> and the game ends
+                    when all lives are lost.
+                    <br> Each of the four ghosts have <u>artificial intelligence</u> - so <b>be carefully!</b>
+                    <br> Don't miss the "moving score" - you can get more 50 points!
+                    <br><u>Don't forget</u>- you've got a limited time for that mission.
+                    <br><b>GOOD LUCK!</b>
+                </div>
                 <table>
                     <td><button type="button" class="btn btn-primary" id="btn_startgame" onclick="btn_startgame()">Start
                             Game</button></td>
@@ -88,6 +99,7 @@
                             Off</button></td>
                 </table>
             </div>
+
 
             <div id="profile" class="col">
                 <fieldset disabled>
@@ -248,14 +260,22 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">About</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"
                             onclick="showContent()">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        ...
+                        <p>
+                            This game created by Ron Israel and Niv Goldshlager.
+                        </p>
+                        <p>
+                            We used jQuery plugins for validation on register and login forms and date picker.
+                        </p>
+                        <img src="./images/gifs/1.gif" style="width: 300px; border-radius: 14px;">
+                        
+
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal"
@@ -296,12 +316,12 @@
     </div>
 
 
-<!-- Footer -->
-<footer class="page-footer font-small special-color-dark">
-    <!-- Copyright -->
-    <div class="footer-copyright text-center py-3">FOOTER
-  </footer>
-  <!-- Footer -->
+    <!-- Footer -->
+    <footer class="page-footer font-small special-color-dark">
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">FOOTER
+    </footer>
+    <!-- Footer -->
 
 
 

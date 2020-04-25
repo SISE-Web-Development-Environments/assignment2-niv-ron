@@ -29,7 +29,7 @@ function connect_btn() {
 function getLoginFields() {
     this.loginFormFields = {
         username: $('#login_username').val(),
-        pass: $('#login_pass').val(),
+        pass: $('#login_pass').val()
     };
 }
 

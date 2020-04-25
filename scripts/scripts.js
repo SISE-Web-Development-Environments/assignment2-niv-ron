@@ -1,7 +1,7 @@
 var shown;
 var isConnected = false;
 
-$(document).ready(function () {
+$(document).ready(function() {
     //HIDE: game, contents
     $('.game').css('display', 'none');
     $('.col').css('display', 'none');
@@ -9,7 +9,7 @@ $(document).ready(function () {
     //SHOW: menu, welcome
     showMenu();
 
-    localStorage.clear();
+    // localStorage.clear();
     buildUsersList();
 })
 
@@ -18,7 +18,7 @@ function btn_startgame() {
         play();
     else
         alert();
-        
+
 }
 
 
@@ -47,7 +47,8 @@ function play() {
     // $('#menu').css('display', 'none');
 
     $(document).on(
-        'keydown', function (event) {
+        'keydown',
+        function(event) {
             if (event.key == "Escape") {
                 showMenu();
                 // $("#login > #btn_play").css('display', 'none');
@@ -85,9 +86,3 @@ function showMenu() {
     }
     show('welcome');
 }
-
-
-
-
-
-
