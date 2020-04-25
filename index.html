@@ -12,10 +12,10 @@
     <script src="scripts/jquery-3.4.1.slim.min.js"></script>
     <script type="text/javascript" src="scripts/app.js"></script>
 
+    <script type="text/javascript" src="scripts/storageManager.js"></script>
     <script type="text/javascript" src="scripts/scripts.js"></script>
     <script type="text/javascript" src="scripts/login.js"></script>
     <script type="text/javascript" src="scripts/register.js"></script>
-    <script type="text/javascript" src="scripts/storageManager.js"></script>
     <script type="text/javascript" src="scripts/settings.js"></script>
 
     <!-- Bootstrap CSS -->
@@ -36,7 +36,6 @@
 <body>
     <div class="allSite">
         <div class="content">
-
             <div class="top">
                 <img src="images/logo.png">
 
@@ -62,7 +61,6 @@
                 </div>
                 <!-- MENU FOR UNCONNECTED USER -->
 
-                
                 <!-- MENU FOR CONNECTED USERS -->
                 <div id="menu2" class="menu">
                     <ul class="nav nav-tabs">
@@ -82,15 +80,12 @@
                     </ul>
                 </div>
                 <!-- MENU FOR CONNECTED USERS -->
-
             </div>
 
 
             <!-- WELCOME -->
             <div id="welcome" class="col">
-                <p id="welcome_msg">
-
-                </p>
+                <p id="welcome_msg"></p>
                 <div class="welcome_text">
                     </o>Your <b>Pac-Man</b> must eat <u>all of the dots</u> inside an enclosed maze while avoiding 1 to
                     4
@@ -126,6 +121,7 @@
                         </div>
                     </div>
                 </fieldset>
+
                 <div class="row">
                     <div class="col-25">
                         <label>Email</label>
@@ -155,7 +151,7 @@
 
                 <div class="row">
                     <div class="col-25">
-                        <label for="bday">Birth Date</label>
+                        <label>Birth Date</label>
                     </div>
                     <div class="col-75">
                         <input type="text" id="profile_bday">
@@ -265,7 +261,6 @@
                     </div>
                 </div>
                 <button type="button" class="btn btn-primary" onclick="connect_btn()">Connect</button>
-                <!-- <button type="button" class="btn btn-primary" onclick="play()">Start Play!</button> -->
             </div>
             <!-- LOGIN -->
 
@@ -298,7 +293,6 @@
                             </div>
                         </div>
                     </div>
-
 
 
                     <!-- SETTINGS: SET Power Pellets | Monsters | Set Time -->
@@ -349,13 +343,7 @@
                             We used jQuery plugins for validation on register and login forms and date picker.
                         </p>
                         <img src="./images/gifs/1.gif" style="width: 300px; border-radius: 14px;">
-
-
                     </div>
-                    <!-- <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal"
-                            onclick="showContent()">Close</button>
-                    </div> -->
                 </div>
             </div>
         </div>
@@ -382,7 +370,6 @@
                         </tr>
                     </table>
                 </div>
-
                 <div id="game">
                     <canvas id="canvas" height="600" width="600"></canvas>
                 </div>
@@ -393,7 +380,8 @@
 
     <!-- FOOTER -->
     <footer>
-        <span>This project is one of assignments on Web Development Environments course at BGU UNIVERSITY.<br></span>
+        <span>This project is one of the assignments in Web Development Environments course at BGU
+            UNIVERSITY.<br></span>
         <a href="mailto:niv_ron@pac-man.com">contact us!</a>
     </footer>
     <!-- FOOTER -->

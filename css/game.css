@@ -13,6 +13,19 @@
 }
 
 
+/* .game {
+    border: solid black;
+    width: 800px;
+    height: auto;
+    margin: 0 auto;
+    display: none;
+    position: fixed;
+    left: 0;
+	right: 0;
+    z-index: 0;
+} */
+
+
 .box-left {
 	float: left;
     width: 350px;

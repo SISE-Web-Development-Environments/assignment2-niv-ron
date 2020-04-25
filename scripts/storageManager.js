@@ -1,4 +1,10 @@
-//STORAGE MANAGING:
+var users;
+var passwords;
+var emails;
+var birthdays;
+var fnames;
+var lnames;
+
 function getStorage(obj) {
     if (localStorage.getItem(obj)) {
         let retrievedData = localStorage.getItem(obj);
@@ -8,14 +14,14 @@ function getStorage(obj) {
 }
 
 function buildUsersList() {
-    // if (localStorage.getItem('users')) {
-    //     this.users = getStorage("users");
-    //     this.passwords = getStorage("passwords");
-    //     this.emails = getStorage("emails");
-    //     this.fnames = getStorage("fnames");
-    //     this.lnames = getStorage("lnames");
-    //     this.birthdays = getStorage("birthdays");
-    // } else {
+    if (localStorage.getItem('users')) {
+        this.users = getStorage("users");
+        this.passwords = getStorage("passwords");
+        this.emails = getStorage("emails");
+        this.fnames = getStorage("fnames");
+        this.lnames = getStorage("lnames");
+        this.birthdays = getStorage("birthdays");
+    } else {
         this.users = ['p'];
         this.passwords = ['p'];
         this.emails = [''];
@@ -23,7 +29,7 @@ function buildUsersList() {
         this.lnames = [''];
         this.birthdays = [''];
         updateLocalStorage();
-    // }
+    }
 }
 
 function isUserExist(username) {

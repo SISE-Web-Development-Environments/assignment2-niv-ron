@@ -7,12 +7,13 @@
     background-size: cover;
 }
 
-.welcome_text {
-    /* border: solid gainsboro; */
-    border-style: ridge;
-    padding: 5px;
-    margin-bottom: 10px;
-    /* font-size: 15px; */
+.btn{
+    margin-top: 10px;
+  }
+  
+.btn_movetoSettings{
+    size: 800px;
+    display: none;
 }
 
 .col {
@@ -47,21 +48,13 @@
     text-align: center;
 }
 
-
-/* .game {
-    border: solid black;
-    width: 800px;
-    height: auto;
-    margin: 0 auto;
-    display: none;
-    position: fixed;
-    left: 0;
-	right: 0;
-    z-index: 0;
-} */
-
-.hide {
-    display: none;
+footer{
+    width: 950px;
+    height: 50px;
+    margin: auto;
+    background-color: black;
+    text-align: center;
+    color: gainsboro;
 }
 
 .menu-button {
@@ -86,22 +79,10 @@
     width: 100%;
 }
 
-.unhide {
-    display: block;
-}
-
-
-
-.btn_movetoSettings{
-    size: 800px;
-    display: none;
-}
-
-footer{
-    width: 950px;
-    height: 50px;
-    margin: auto;
-    background-color: black;
-    text-align: center;
-    color: gainsboro;
+.welcome_text {
+    /* border: solid gainsboro; */
+    border-style: ridge;
+    padding: 5px;
+    margin-bottom: 10px;
+    /* font-size: 15px; */
 }

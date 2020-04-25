@@ -51,7 +51,6 @@ function form_validation() {
 		$('#register_username').after('<span class="error">Username already exist.</span>');
 		isValid = false;
 	}
-
 	if (pass.length < 6) {
 		$('#register_password').after('<span class="error">Password is too short</span>');
 		isValid = false;
@@ -62,7 +61,6 @@ function form_validation() {
 		$('#register_password').after('<span class="error">Password must contain a number</span>');
 		isValid = false;
 	}
-
 	if (fname.length < 1) {
 		$('#register_fname').after('<span class="error">This field is required</span>');
 		isValid = false;
@@ -92,23 +90,22 @@ function form_validation() {
 		$('#register_bday').after('<span class="error">This field is required</span>');
 		isValid = false;
 	}
-
 	return isValid;
-}
-
-function isContainNumber(pass) {
-	for (var i = 0; i < pass.length; i++) {
-		let char = pass.charAt(i);
-		if ((char >= '0' && char <= '9'))
-			return true;
-	}
-	return false;
 }
 
 function isContainLetter(pass) {
 	for (var i = 0; i < pass.length; i++) {
 		let char = pass.charAt(i);
 		if (char.toUpperCase() != char.toLowerCase())
+			return true;
+	}
+	return false;
+}
+
+function isContainNumber(pass) {
+	for (var i = 0; i < pass.length; i++) {
+		let char = pass.charAt(i);
+		if ((char >= '0' && char <= '9'))
 			return true;
 	}
 	return false;

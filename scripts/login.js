@@ -1,17 +1,6 @@
-var users;
-var passwords;
-var emails;
-var birthdays;
-var fnames;
-var lnames;
-
-//LOGIN FIELDS:
 var loginFormFields;
 var user;
 
-
-
-//LOGIN:
 function connect_btn() {
     getLoginFields();
     $(".error").remove();
@@ -26,13 +15,6 @@ function connect_btn() {
     }
 }
 
-function getLoginFields() {
-    this.loginFormFields = {
-        username: $('#login_username').val(),
-        pass: $('#login_pass').val()
-    };
-}
-
 function connect(username, password) {
     if (isAuthentication(username, password)) {
         //get this user info:
@@ -45,8 +27,6 @@ function connect(username, password) {
             lname: JSON.parse(localStorage["lnames"])[index],
             bday: JSON.parse(localStorage["birthdays"])[index]
         };
-
-
         setProfileDiv(username);
         isConnected = true;
         return true;
@@ -63,15 +43,12 @@ function disconnect() {
     $('.content').css('display', 'block');
 }
 
-function isAuthentication(username, password) {
-
-    if (isUserExist(username)) {
-        let index = getUserIndex(username);
-        return password == passwords[index];
-    }
-    return false;
+function getLoginFields() {
+    this.loginFormFields = {
+        username: $('#login_username').val(),
+        pass: $('#login_pass').val()
+    };
 }
-
 
 function getUserIndex(username) {
     for (var i = 0; i < users.length; i++) {
@@ -79,6 +56,14 @@ function getUserIndex(username) {
             return i;
     }
     return 'false';
+}
+
+function isAuthentication(username, password) {
+    if (isUserExist(username)) {
+        let index = getUserIndex(username);
+        return password == passwords[index];
+    }
+    return false;
 }
 
 function isUserExist(username) {

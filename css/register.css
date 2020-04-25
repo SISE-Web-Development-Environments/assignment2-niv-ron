@@ -24,20 +24,8 @@
 	border-radius: 8px;
   }
 
-  #register .register_errors{
-    border: solid gainsboro;
-    width: auto;
-    height: auto;
-    margin: auto;
-    padding: 2px;
-    color: red;
-    display: none;
-  }
   .error {
     color: red;
     font-size: small;
   }
 
-  .btn{
-    margin-top: 10px;
-  }

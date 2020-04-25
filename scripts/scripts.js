@@ -22,46 +22,26 @@ function btn_startgame() {
 
 }
 
-
-function updateLocalStorage() {
-    localStorage.clear();
-    localStorage.setItem("users", JSON.stringify(this.users));
-    localStorage.setItem("passwords", JSON.stringify(this.passwords));
-    localStorage.setItem("emails", JSON.stringify(this.emails));
-    localStorage.setItem("birthdays", JSON.stringify(this.birthdays));
-    localStorage.setItem("fnames", JSON.stringify(this.fnames));
-    localStorage.setItem("lnames", JSON.stringify(this.lnames));
-}
-
 function hideContent() {
     $('.content').css('display', 'none');
 }
 
 function play() {
-    // if (shown != 'game') {
-    //     $(shown).css('display', 'none');
-    //     shown = game;
-    // }
-
     $('#game_grid').css('display', 'block');
     $('.content').css('display', 'none');
-    // $('#menu').css('display', 'none');
 
     $(document).on(
         'keydown',
         function(event) {
             if (event.key == "Escape") {
                 showMenu();
-                // $("#login > #btn_play").css('display', 'none');
             }
         });
-
 }
 
 function show(obj) {
     $('#' + shown).css('display', 'none');
     $('#' + obj).css('display', 'block');
-
     $('#button_' + shown).removeClass('active');
     $('#button_' + obj).addClass('active');
     shown = obj;
@@ -88,4 +68,14 @@ function showMenu() {
         $('#btn_startgame').css('display', 'none');
         show('welcome');
     }
+}
+
+function updateLocalStorage() {
+    localStorage.clear();
+    localStorage.setItem("users", JSON.stringify(this.users));
+    localStorage.setItem("passwords", JSON.stringify(this.passwords));
+    localStorage.setItem("emails", JSON.stringify(this.emails));
+    localStorage.setItem("birthdays", JSON.stringify(this.birthdays));
+    localStorage.setItem("fnames", JSON.stringify(this.fnames));
+    localStorage.setItem("lnames", JSON.stringify(this.lnames));
 }
