@@ -34,6 +34,13 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
+
+
+    <!-- Date Picker -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
 
 <body>
@@ -230,7 +237,7 @@
                             <label>Birth Date</label>
                         </div>
                         <div class="col-75">
-                            <input type="date" id="register_bday" name="birthday">
+                            <input type="text" id="register_bday" name="birthday">
                         </div>
                     </div>
 
@@ -270,7 +277,7 @@
             <!-- SETTINGS -->
             <div id="settings" class="col">
                 <div class="accordion" id="accordionExample">
-                    <div class="card" >
+                    <div class="card">
                         <div class="card-header" id="headingOne" style="height: auto; padding: 0;">
                             <button class="btn" type="button" data-toggle="collapse" data-target="#collapseOne">
                                 Power Pellets | Monsters | Set Time
@@ -320,10 +327,10 @@
 
                     <div class="card">
                         <div class="card-header" id="headingTwo" style="height: auto; padding: 0;">
-                                <button class="btn collapsed" type="button" data-toggle="collapse"
-                                    data-target="#collapseTwo">
-                                    Change Keys
-                                </button>
+                            <button class="btn collapsed" type="button" data-toggle="collapse"
+                                data-target="#collapseTwo">
+                                Change Keys
+                            </button>
                         </div>
                         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
                             data-parent="#accordionExample">

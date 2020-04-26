@@ -110,3 +110,12 @@ function isContainNumber(pass) {
 	}
 	return false;
 }
+
+// Date Picker:
+$(function () {
+	$("#register_bday").datepicker();
+});
+
+$(function () {
+	$("#profile_bday").datepicker();
+});
