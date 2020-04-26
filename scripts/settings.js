@@ -11,32 +11,36 @@ var keys = {
 
 function setKeys() {
     document.getElementById("setkeyleft").addEventListener('keydown', function (event) {
+        var key = (event.keyCode ? event.keyCode : event.which);
         if (!event.metaKey)
             event.preventDefault();
-        this.style.backgroundImage = "url('./images/keys/" + event.key + ".png')";
-        // this.value = event.key;
+        this.style.backgroundImage = "url('./images/keys/" + key + ".png')";
+        // this.value = key;
     });
 
 
     document.getElementById("setkeyright").addEventListener('keydown', function (event) {
+        var key = (event.keyCode ? event.keyCode : event.which);
         if (!event.metaKey)
             event.preventDefault();
-        this.style.backgroundImage = "url('./images/keys/" + event.key + ".png')";
-        // this.value = event.key;
+        this.style.backgroundImage = "url('./images/keys/" + key + ".png')";
+        // this.value = key;
     });
 
     document.getElementById("setkeyup").addEventListener('keydown', function (event) {
+        var key = (event.keyCode ? event.keyCode : event.which);
         if (!event.metaKey)
             event.preventDefault();
-        this.style.backgroundImage = "url('./images/keys/" + event.key + ".png')";
-        // this.value = event.key;
+        this.style.backgroundImage = "url('./images/keys/" + key + ".png')";
+        // this.value = key;
     });
 
     document.getElementById("setkeydown").addEventListener('keydown', function (event) {
+        var key = (event.keyCode ? event.keyCode : event.which);
         if (!event.metaKey)
             event.preventDefault();
-        this.style.backgroundImage = "url('./images/keys/" + event.key + ".png')";
-        // this.value = event.key;
+        this.style.backgroundImage = "url('./images/keys/" + key + ".png')";
+        // this.value = key;
     });
 
 
