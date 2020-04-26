@@ -8,8 +8,6 @@ $(document).ready(function () {
 
     //SHOW: menu, welcome
     showMenu();
-    show('settings');
-    // play();
 
     //STORAGE INITIALIZATION:
     sessionStorage.clear();
