@@ -8,6 +8,7 @@ $(document).ready(function () {
 
     //SHOW: menu, welcome
     showMenu();
+    // play();
 
     //STORAGE INITIALIZATION:
     sessionStorage.clear();
@@ -20,8 +21,8 @@ function hideContent() {
 }
 
 function play() {
-    $('#game_grid').css('display', 'block');
     $('.content').css('display', 'none');
+    $('#game_grid').css('display', 'block');
     $(document).on(
         'keydown',
         function (event) {

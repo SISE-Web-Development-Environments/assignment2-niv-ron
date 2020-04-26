@@ -1,7 +1,6 @@
 #game{
     border: solid black;
     background-image: url('../images/backgrounds/grid.png');
-    /* background-color: black; */
     background-size: cover;
     width: 600px;
     height: 600px;
@@ -11,20 +10,6 @@
 	right: 0;
     z-index: 0;
 }
-
-
-/* .game {
-    border: solid black;
-    width: 800px;
-    height: auto;
-    margin: 0 auto;
-    display: none;
-    position: fixed;
-    left: 0;
-	right: 0;
-    z-index: 0;
-} */
-
 
 .box-left {
 	float: left;
