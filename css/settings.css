@@ -8,8 +8,9 @@
     width: 60px;
     background-size: cover;
 }
+
 #setkeyleft{
-    background-image: url("../images/keys/ArrowLeft.png");
+    background-image: url("./images/keys/ArrowLeft.png");
 }
 #setkeyright{
     background-image: url("../images/keys/ArrowRight.png");

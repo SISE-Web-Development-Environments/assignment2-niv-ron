@@ -17,6 +17,11 @@ var currentKeys = {
     }
 };
 
+function btn_ChangeKeys(){
+    currentKeys.changeKeys(keySet.up, keySet.down, keySet.left, keySet.right);
+}
+
+
 $(document).ready(function () {
     showCurrentKeys();
     listener_setKeys();
