@@ -90,8 +90,7 @@
                 <p id="welcome_msg"></p>
                 <div class="welcome_text">
                     </o>Your <b>Pac-Man</b> must eat <u>all of the dots</u> inside an enclosed maze while avoiding 1 to
-                    4
-                    colored ghosts.
+                    4 colored ghosts.
                     <br> Eating those dots called "Power Pellets" give your Pac-Man a bonus of 5, 15 or 25 points.
                     <br> If your Pac-Man makes contact with a ghost, he will <u>lose a life</u>,
                     <br> The game ends when his all 5 lives are lost.
@@ -275,11 +274,38 @@
                             <h2 class="mb-0">
                                 <button class="btn btn-link" type="button" data-toggle="collapse"
                                     data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    SET KEYS </button>
+                                    Power Pellets | Monsters | Set Time
+                                </button>
                             </h2>
                         </div>
 
                         <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                            data-parent="#accordionExample">
+                            <div class="card-body">
+                                <table>
+                                    <tr>
+                                        <td><input type="button" id="ghostBlinky" class="ghostbutton">Blinky</td>
+                                        <td><input type="button" id="ghostClyde" class="ghostbutton">Clyde</td>
+                                        <td><input type="button" id="ghostInky" class="ghostbutton">Inky</td>
+                                        <td><input type="button" id="ghostPinky" class="ghostbutton">Pinky</td>
+                                    </tr>
+                                </table>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header" id="headingTwo">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                    data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    SET KEYS
+                                </button>
+                            </h2>
+                        </div>
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
                             data-parent="#accordionExample">
                             <div class="card-body">
                                 <table>
@@ -294,25 +320,8 @@
                                         <td><input type="button" id="keyright" class="inputkey"></td>
                                     </tr>
                                 </table>
-
                                 <button onclick="btn_saveKeys()">Save Changes</button>
                                 <button onclick="keys.setDefault()">get Default Keys</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-header" id="headingTwo">
-                            <h2 class="mb-0">
-                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
-                                    data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    Power Pellets | Monsters | Set Time
-                                </button>
-                            </h2>
-                        </div>
-                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
-                            data-parent="#accordionExample">
-                            <div class="card-body">
-                                soon!
                             </div>
                         </div>
                     </div>

@@ -21,3 +21,28 @@
 #setkeydown{
     background-image: url("../images/keys/ArrowDown.png");
 }
+
+.ghostbutton {
+    width: 70px;
+    height: 70px;
+    background-size: cover;
+    border-radius: 8px;
+    background-color: white;
+    border: white;
+  }
+
+
+#ghostBlinky{
+    background-image: url("../images/characters/Blinky.png");
+}
+
+#ghostClyde{
+    background-image: url("../images/characters/Clyde.png");
+
+}
+#ghostInky{
+    background-image: url("../images/characters/Inky.png");
+}
+#ghostPinky{
+    background-image: url("../images/characters/pinky.png");
+}
