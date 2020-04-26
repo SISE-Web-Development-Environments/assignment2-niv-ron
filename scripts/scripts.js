@@ -1,7 +1,7 @@
 var shown;
 var isConnected = false;
 
-$(document).ready(function() {
+$(document).ready(function () {
     //HIDE: game, contents
     $('.game').css('display', 'none');
     $('.col').css('display', 'none');
@@ -9,18 +9,11 @@ $(document).ready(function() {
     //SHOW: menu, welcome
     showMenu();
 
+    //STORAGE INITIALIZATION:
     sessionStorage.clear();
     localStorage.clear();
     buildUsersList();
 })
-
-function btn_startgame() {
-    if (this.isConnected)
-        play();
-    else
-        alert("please connect first.");
-
-}
 
 function hideContent() {
     $('.content').css('display', 'none');
@@ -29,10 +22,9 @@ function hideContent() {
 function play() {
     $('#game_grid').css('display', 'block');
     $('.content').css('display', 'none');
-
     $(document).on(
         'keydown',
-        function(event) {
+        function (event) {
             if (event.key == "Escape") {
                 showMenu();
             }
@@ -68,14 +60,4 @@ function showMenu() {
         $('#btn_startgame').css('display', 'none');
         show('welcome');
     }
-}
-
-function updateLocalStorage() {
-    localStorage.clear();
-    localStorage.setItem("users", JSON.stringify(this.users));
-    localStorage.setItem("passwords", JSON.stringify(this.passwords));
-    localStorage.setItem("emails", JSON.stringify(this.emails));
-    localStorage.setItem("birthdays", JSON.stringify(this.birthdays));
-    localStorage.setItem("fnames", JSON.stringify(this.fnames));
-    localStorage.setItem("lnames", JSON.stringify(this.lnames));
 }

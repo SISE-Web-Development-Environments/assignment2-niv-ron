@@ -1,69 +1,82 @@
-var keySet = { up: 38, down: 40, left: 37, right: 39 };
-var currentKeys = {
-    key_up: 38, key_down: 40, key_left: 37, key_right: 39,
-    setDefualt: function () {
-        this.key_up = 38;
-        this.key_Down = 40;
-        this.key_Left = 37;
-        this.key_right = 39;
-        showCurrentKeys();
+$(document).ready(function () {
+    showKeysIcons();
+    listener_changingKeysByUser();
+});
+
+function showKeysIcons() {
+    document.getElementById("keyup").style.backgroundImage = "url('../images/keys/" + keys.up + ".png')";
+    document.getElementById("keydown").style.backgroundImage = "url('../images/keys/" + keys.down + ".png')";
+    document.getElementById("keyleft").style.backgroundImage = "url('../images/keys/" + keys.left + ".png')";
+    document.getElementById("keyright").style.backgroundImage = "url('../images/keys/" + keys.right + ".png')";
+}
+var keys = {
+    isCorrect: true,
+    up: 38, down: 40, left: 37, right: 39,
+    setDefault: function () {
+        this.up = 38; this.down = 40; this.left = 37; this.right = 39;
+        inputKeys.setDefault();
+        showKeysIcons();
+        return true;
     },
     changeKeys: function (up, down, left, right) {
-        if (right == left || right == down || right == up || left == down || left == up || up == down)
+        if (right == left || right == down || right == up || left == down || left == up || up == down) {
             alert("you cant set the same key for different actions!");
+            return false;
+        }
         else {
-            this.key_up = up; this.key_Down = down; this.key_Left = left; this.key_right = right; alert("keys changed!");
+            this.up = up; this.down = down; this.left = left; this.right = right;
+            return true;
         }
     }
 };
+var inputKeys = {
+    up: keys.up, down: keys.down, left: keys.left, right: keys.right, 
+    setDefault: function () {this.up = 38; this.down = 40; this.left = 37; this.right = 39;}
+};
 
-function btn_ChangeKeys(){
-    currentKeys.changeKeys(keySet.up, keySet.down, keySet.left, keySet.right);
+function btn_saveKeys() {
+    return keys.changeKeys(inputKeys.up, inputKeys.down, inputKeys.left, inputKeys.right);
 }
 
-
-$(document).ready(function () {
-    showCurrentKeys();
-    listener_setKeys();
-});
-
-function showCurrentKeys() {
-    document.getElementById("setkeyup").style.backgroundImage = "url('./images/keys/" + currentKeys.key_up + ".png')";
-    document.getElementById("setkeydown").style.backgroundImage = "url('./images/keys/" + currentKeys.key_down + ".png')";
-    document.getElementById("setkeyleft").style.backgroundImage = "url('./images/keys/" + currentKeys.key_left + ".png')";
-    document.getElementById("setkeyright").style.backgroundImage = "url('./images/keys/" + currentKeys.key_right + ".png')";
-}
-
-function listener_setKeys() {
-    document.getElementById("setkeyleft").addEventListener('keydown', function (event) {
+function listener_changingKeysByUser() {
+    document.getElementById("keyleft").addEventListener('keydown', function (event) {
         let key1 = (event.keyCode ? event.keyCode : event.which);
         if (!event.metaKey)
             event.preventDefault();
         this.style.backgroundImage = "url('./images/keys/" + key1 + ".png')";
-        keySet.left = key1;
+        inputKeys.left = key1;
     });
 
-    document.getElementById("setkeyright").addEventListener('keydown', function (event) {
+    document.getElementById("keyright").addEventListener('keydown', function (event) {
         let key2 = (event.keyCode ? event.keyCode : event.which);
         if (!event.metaKey)
             event.preventDefault();
         this.style.backgroundImage = "url('./images/keys/" + key2 + ".png')";
-        keySet.right = key2;
+        inputKeys.right = key2;
     });
 
-    document.getElementById("setkeyup").addEventListener('keydown', function (event) {
+    document.getElementById("keyup").addEventListener('keydown', function (event) {
         let key3 = (event.keyCode ? event.keyCode : event.which);
         if (!event.metaKey)
             event.preventDefault();
         this.style.backgroundImage = "url('./images/keys/" + key3 + ".png')";
-        keySet.up = key3;
+        inputKeys.up = key3;
     });
 
-    document.getElementById("setkeydown").addEventListener('keydown', function (event) {
+    document.getElementById("keydown").addEventListener('keydown', function (event) {
         let key4 = (event.keyCode ? event.keyCode : event.which);
         if (!event.metaKey)
             event.preventDefault();
         this.style.backgroundImage = "url('./images/keys/" + key4 + ".png')";
-        keySet.down = key4;
+        inputKeys.down = key4;
     });
+}
+
+function btn_startgame() {
+    if (this.isConnected) {
+        if (btn_saveKeys())
+            play();
+    }
+    else
+        alert("please connect first.");
 }

@@ -39,3 +39,13 @@ function isUserExist(username) {
     }
     return false;
 }
+
+function updateLocalStorage() {
+    localStorage.clear();
+    localStorage.setItem("users", JSON.stringify(this.users));
+    localStorage.setItem("passwords", JSON.stringify(this.passwords));
+    localStorage.setItem("emails", JSON.stringify(this.emails));
+    localStorage.setItem("birthdays", JSON.stringify(this.birthdays));
+    localStorage.setItem("fnames", JSON.stringify(this.fnames));
+    localStorage.setItem("lnames", JSON.stringify(this.lnames));
+}
