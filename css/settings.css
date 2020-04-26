@@ -1,3 +1,22 @@
 .btn_set{
     height: 5px;
 }
+
+
+.inputkey {
+    height: 60px;
+    width: 60px;
+    background-size: cover;
+}
+#setkeyleft{
+    background-image: url("../images/keys/ArrowLeft.png");
+}
+#setkeyright{
+    background-image: url("../images/keys/ArrowRight.png");
+}
+#setkeyup{
+    background-image: url("../images/keys/ArrowUp.png");
+}
+#setkeydown{
+    background-image: url("../images/keys/ArrowDown.png");
+}
