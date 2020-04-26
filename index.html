@@ -65,7 +65,7 @@
 
                 <!-- MENU FOR CONNECTED USERS -->
                 <div id="menu2" class="menu">
-                    <ul class="nav nav-tabs">.
+                    <ul class="nav nav-tabs">
                         <li class="nav-item menu-button">
                             <a id="button_welcome" class="nav-link" href="#" onClick="show('welcome')">Welcome</a>
                         </li>
@@ -285,17 +285,18 @@
                                 <table>
                                     <tr>
                                         <td></td>
-                                        <td><input type="button" id="setkeyup" class="inputkey" value></td>
+                                        <td><input type="button" id="setkeyup" class="inputkey"></td>
                                         <td></td>
                                     </tr>
                                     <tr>
-                                        <td><input type="button" id="setkeyleft" class="inputkey" value></td>
-                                        <td><input type="button" id="setkeydown" class="inputkey" value></td>
-                                        <td><input type="button" id="setkeyright" class="inputkey" value></td>
+                                        <td><input type="button" id="setkeyleft" class="inputkey"></td>
+                                        <td><input type="button" id="setkeydown" class="inputkey"></td>
+                                        <td><input type="button" id="setkeyright" class="inputkey"></td>
                                     </tr>
                                 </table>
 
-                                <button onclick="changeKeys">Save Changes</button>
+                                <button onclick="currentKeys.changeKeys()">Save Changes</button>
+                                <button onclick="currentKeys.setDefualt()">get Default Keys</button>
                             </div>
                         </div>
                     </div>
