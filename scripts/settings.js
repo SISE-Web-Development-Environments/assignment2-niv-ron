@@ -80,3 +80,5 @@ function btn_startgame() {
     else
         alert("please connect first.");
 }
+
+

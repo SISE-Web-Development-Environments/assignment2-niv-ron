@@ -19,6 +19,7 @@
     <script type="text/javascript" src="scripts/login.js"></script>
     <script type="text/javascript" src="scripts/register.js"></script>
     <script type="text/javascript" src="scripts/settings.js"></script>
+    <script type="text/javascript" src="scripts/settings2.js"></script>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -282,15 +283,43 @@
                         <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
                             data-parent="#accordionExample">
                             <div class="card-body">
+
                                 <table>
                                     <tr>
-                                        <td><input type="button" id="ghostBlinky" class="ghostbutton">Blinky</td>
-                                        <td><input type="button" id="ghostClyde" class="ghostbutton">Clyde</td>
-                                        <td><input type="button" id="ghostInky" class="ghostbutton">Inky</td>
-                                        <td><input type="button" id="ghostPinky" class="ghostbutton">Pinky</td>
+                                        <td>SET TIME</td>
+                                        <td>
+                                            <input type="number" class="form-control" id="gameTimeForm" name="setTime"
+                                                value="60" onchange="validateGameTime(this);">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Power Pellets </td>
+                                        <td></td>
                                     </tr>
                                 </table>
 
+                                <table>
+                                    <tr>
+                                        Pick Ghosts:
+                                    </tr>
+                                    <tr>
+                                        <td><button type="button" id="ghostBlinky" class="ghostbutton"
+                                                onclick="setGhost('ghostBlinky')"></button></td>
+                                        <td><input type="button" id="ghostClyde" class="ghostbutton"
+                                                onclick="setGhost('ghostClyde')"></td>
+                                        <td><input type="button" id="ghostInky" class="ghostbutton"
+                                                onclick="setGhost('ghostInky')"></td>
+                                        <td><input type="button" id="ghostPinky" class="ghostbutton"
+                                                onclick="setGhost('ghostPinky')"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="ghostname">Blinky</td>
+                                        <td class="ghostname">Clyde</td>
+                                        <td class="ghostname">Inky</td>
+                                        <td class="ghostname">Pinky</td>
+                                    </tr>
+                                </table>
+                                <button type="button" class="btn btn-primary" id="btn_setRandom" onclick="">Random</button>
 
                             </div>
                         </div>
@@ -320,15 +349,17 @@
                                         <td><input type="button" id="keyright" class="inputkey"></td>
                                     </tr>
                                 </table>
-                                <button onclick="btn_saveKeys()">Save Changes</button>
-                                <button onclick="keys.setDefault()">get Default Keys</button>
+                                <button type="button" class="btn  btn-primary" onclick="btn_saveKeys()">Save
+                                    Changes</button>
+                                <button type="button" class="btn btn-primary" onclick="keys.setDefault()">Default
+                                    Keys</button>
                             </div>
                         </div>
                     </div>
 
                 </div>
                 <button type="button" class="btn btn-primary" id="btn_startgame" onclick="btn_startgame()">Start
-                    Game</button></td>
+                    Game</button>
             </div>
             <!-- SETTINGS -->
 
