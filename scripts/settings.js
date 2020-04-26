@@ -5,7 +5,7 @@ $(document).ready(function () {
 
 function showKeysIcons() {
     document.getElementById("keyup").style.backgroundImage = "url('./images/keys/" + keys.up + ".png')";
-    document.getElementById("keydown").style.backgroundImage = "url('../images/keys/" + keys.down + ".png')";
+    document.getElementById("keydown").style.backgroundImage = "url('./images/keys/" + keys.down + ".png')";
     document.getElementById("keyleft").style.backgroundImage = "url('./images/keys/" + keys.left + ".png')";
     document.getElementById("keyright").style.backgroundImage = "url('./images/keys/" + keys.right + ".png')";
 }
