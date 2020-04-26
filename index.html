@@ -283,13 +283,11 @@
                         <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
                             data-parent="#accordionExample">
                             <div class="card-body">
-
                                 <table>
                                     <tr>
                                         <td>SET TIME</td>
                                         <td>
-                                            <input type="number" class="form-control" id="gameTimeForm" name="setTime"
-                                                value="60" onchange="validateGameTime(this);">
+                                            <input type="number" id="setTime" value="60" onchange="setTime(this);">
                                         </td>
                                     </tr>
                                     <tr>
@@ -299,9 +297,6 @@
                                 </table>
 
                                 <table>
-                                    <tr>
-                                        Pick Ghosts:
-                                    </tr>
                                     <tr>
                                         <td><button type="button" id="ghostBlinky" class="ghostbutton"
                                                 onclick="setGhost('ghostBlinky')"></button></td>
@@ -319,7 +314,8 @@
                                         <td class="ghostname">Pinky</td>
                                     </tr>
                                 </table>
-                                <button type="button" class="btn btn-primary" id="btn_setRandom" onclick="">Random</button>
+                                <button type="button" class="btn btn-primary" id="btn_setRandom"
+                                    onclick="">Random</button>
 
                             </div>
                         </div>

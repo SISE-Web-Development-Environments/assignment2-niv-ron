@@ -1,13 +1,15 @@
+var timmer = 60;
 
   function setGhost(ghostID){
     $('#'+ghostID).css('border', '2px solid blue');
   }
 
-  function validateSetTime(time) {
-    if (element.value < 60) {
-        element.value = 60;
+  function setTime(time) {
+    if (time.value < 60) {
+      time.value = 60;
+      alert("Time for that mission can't be less than 60 seconds");
     } else {
-        game_time = element.value;
+        this.timmer = time;
     }
 
 }
