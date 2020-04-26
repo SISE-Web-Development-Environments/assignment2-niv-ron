@@ -330,65 +330,69 @@
         <!-- CONTENT -->
 
 
+
+
+
+
+        <!-- ABOUT -->
+        <!-- Modal Dialog -->
+        <div class="modal fade" id="about" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">About</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                            onclick="showContent()">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            This game created by Ron Israel and Niv Goldshlager.
+                        </p>
+                        <p>
+                            We used jQuery plugins for validation on register and login forms and date picker.
+                        </p>
+                        <img src="./images/gifs/1.gif" style="width: 300px; border-radius: 14px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal Dialog -->
+        <!-- ABOUT -->
+
+
+        <!-- GAME BOARD -->
+        <div id="game_grid" class="game">
+            <div>
+                <div class="box-left">
+                    <table>
+                        <tr>
+                            <div id="score">
+                                <label for="lblScore">SCORE:</label>
+                                <input id="lblScore" type="text" />
+                            </div>
+                        </tr>
+                        <tr>
+                            <div id="time">
+                                <label for="lblTime">TIME:</label>
+                                <input id="lblTime" type="text" />
+                            </div>
+                        </tr>
+                    </table>
+                </div>
+                <div id="game">
+                    <canvas id="canvas" height="600" width="600"></canvas>
+                </div>
+            </div>
+        </div>
+        <!-- GAME BOARD -->
+
+
     </div>
+
     <!-- ALL SITE -->
-
-
-
-    <!-- ABOUT -->
-    <!-- Modal Dialog -->
-    <div class="modal fade" id="about" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">About</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="showContent()">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <p>
-                        This game created by Ron Israel and Niv Goldshlager.
-                    </p>
-                    <p>
-                        We used jQuery plugins for validation on register and login forms and date picker.
-                    </p>
-                    <img src="./images/gifs/1.gif" style="width: 300px; border-radius: 14px;">
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Modal Dialog -->
-    <!-- ABOUT -->
-
-
-    <!-- GAME BOARD -->
-    <div id="game_grid" class="game">
-        <div>
-            <div class="box-left">
-                <table>
-                    <tr>
-                        <div id="score">
-                            <label for="lblScore">SCORE:</label>
-                            <input id="lblScore" type="text" />
-                        </div>
-                    </tr>
-                    <tr>
-                        <div id="time">
-                            <label for="lblTime">TIME:</label>
-                            <input id="lblTime" type="text" />
-                        </div>
-                    </tr>
-                </table>
-            </div>
-            <div id="game">
-                <canvas id="canvas" height="600" width="600"></canvas>
-            </div>
-        </div>
-    </div>
-    </div>
-    <!-- GAME BOARD -->
 
     <!-- FOOTER -->
     <footer>
