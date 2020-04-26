@@ -34,13 +34,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
-
-
-    <!-- Date Picker -->
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="/resources/demos/style.css">
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
 
 <body>
@@ -157,16 +150,16 @@
                         <input type="text" id="profile_lname">
                     </div>
                 </div>
-
-                <div class="row">
-                    <div class="col-25">
-                        <label>Birth Date</label>
+                <fieldset disabled>
+                    <div class="row">
+                        <div class="col-25">
+                            <label>Birth Date</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" id="profile_bday">
+                        </div>
                     </div>
-                    <div class="col-75">
-                        <input type="text" id="profile_bday">
-                    </div>
-                </div>
-
+                </fieldset>
                 <div class="row">
                     <div class="col-25">
                         <label>New Password</label>
@@ -237,7 +230,7 @@
                             <label>Birth Date</label>
                         </div>
                         <div class="col-75">
-                            <input type="text" id="register_bday" name="birthday">
+                            <input type="date" id="register_bday" name="birthday">
                         </div>
                     </div>
 
