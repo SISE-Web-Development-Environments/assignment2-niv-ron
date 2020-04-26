@@ -49,7 +49,7 @@ function showMenu() {
         $('#menu1').css('display', 'none');
         $('#menu2').css('display', 'block');
         $('#btn_logoff').css('display', 'block');
-        $('#welcome_msg').html('Welcome <b>' + user.username + '!</b>');
+        $('#welcome_msg').html('Welcome <b>' + user.fname + '!</b>');
         $('#btn_startgame').css('display', 'block');
         show('profile');
     } else {

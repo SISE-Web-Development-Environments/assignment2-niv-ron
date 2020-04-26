@@ -24,9 +24,9 @@ function buildUsersList() {
     } else {
         this.users = ['p'];
         this.passwords = ['p'];
-        this.emails = [''];
-        this.fnames = [''];
-        this.lnames = [''];
+        this.emails = ['inbalros@post.bgu.ac.il'];
+        this.fnames = ['Inbal'];
+        this.lnames = ['Roshansky'];
         this.birthdays = [''];
         updateLocalStorage();
     }
