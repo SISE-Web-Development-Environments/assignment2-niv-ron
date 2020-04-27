@@ -8,12 +8,11 @@ $(document).ready(function () {
 
     //SHOW: menu, welcome
     showMenu();
+    // $('.content').css('display', 'none');
 
     //STORAGE INITIALIZATION:
-    if (!areCorrectUsersInfoSaved()) {
-        sessionStorage.clear();
-        localStorage.clear();
-    }
+    sessionStorage.clear();
+    localStorage.clear();
     buildUsersList();
 })
 

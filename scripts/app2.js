@@ -7,53 +7,79 @@ var start_time;
 var time_elapsed;
 var interval;
 
-//monsters:
-var monsters_remain;
-//END OF SETTINGS
-//////////////////////////////////
+$(document).ready(function () {
+	context = canvas.getContext("2d");
+	// Start();
+	drawPacman(10, 10, 'yellow');
+	drawFood(10, 11, 'black', 10);
+	drawGhost(10, 12, 'blinky');
+	setWalls();
+});
 
-//DRAWING:
-function monster_drawing() {
-	let cent = 210;// 60*position
-	//MONSTER:
-	context.beginPath();
-	context.moveTo(cent - 20, cent - 10);
-	context.lineTo(cent - 20, cent + 15);
-	context.lineTo(cent - 15, cent + 10);
-	context.lineTo(cent - 10, cent + 15);
-	context.lineTo(cent - 5, cent + 10);
-	context.lineTo(cent, cent + 15);
-	context.lineTo(cent + 5, cent + 10);
-	context.lineTo(cent + 10, cent + 15);
-	context.lineTo(cent + 15, cent + 10);
-	context.lineTo(cent + 20, cent + 15);
-	context.lineTo(cent + 20, cent - 10);
-	context.lineWidth = 2;
-	context.fillStyle = "red";
-	context.fill();
-	context.beginPath();
-	context.arc(cent, cent - 5, 20, 0, Math.PI, true);
-	context.fillStyle = "red";
-	context.fill();
-	context.beginPath();
-	context.fillStyle = "white";
-	context.arc(cent - 10, cent - 10, 4, 0, 2 * Math.PI);
-	context.arc(cent + 10, cent - 10, 4, 0, 2 * Math.PI);
-	context.fill();
+function setWalls() {
+	// frame:
+	for (var col = 0; col < 18; col++)
+		setWall(0, col);
+	for (var col = 0; col < 18; col++)
+		setWall(12, col);
+	for (var row = 1; row < 12; row++) {
+		if (row != 6)
+			setWall(row, 0);
+	}
+	for (var row = 1; row < 12; row++) {
+		if (row != 6)
+			setWall(row, 17);
+	}
+	// by rows:
+	for (var col = 4; col < 14; col++) {
+		if (col ==4|| col ==13)
+			setWall(1, col);
+	}
+	for (var col = 2; col < 16; col++) {
+		if (col == 2 || col == 6 || col == 7 || col == 10 || col == 11 || col == 15)
+			setWall(2, col);
+	}
+	for (var col = 2; col < 16; col++) {
+		if (col ==2||  col ==3||col ==5|| col ==12|| col ==14|| col ==15) 
+			setWall(3, col);
+	}
+	for (var col = 2; col < 16; col++) {
+		if (col ==3||  col ==7||  col ==10||  col ==14) 
+			setWall(4, col);
+	}
+	for (var col = 1; col < 17; col++) {
+		if (col == 1|| col ==3 || col == 4 || col == 6 || col == 11 || col == 13|| col ==14 || col == 16)
+			setWall(5, col);
+	}
+	for (var col = 6; col < 12; col++)
+		setWall(6, col);
+	for (var col = 1; col < 17; col++) {
+		if (col == 1 || col == 3 || col == 4 || col == 13 || col == 14 || col == 16)
+			setWall(7, col);
+	}
+	for (var col = 1; col < 17; col++)
+		if (col == 1 || col == 3 || col == 4 || col == 5 || col == 6 || col == 7 || col == 10 || col == 11 || col == 12 || col == 13 || col == 14 || col == 16)
+			setWall(8, col);
 
-	//MONSTER - EYE:
-	context.beginPath();
-	context.fillStyle = "black";
-	context.arc(cent - 12, cent - 10, 2, 0, 2 * Math.PI);
-	context.arc(cent + 8, cent - 10, 2, 0, 2 * Math.PI);
-	context.fill();
+	for (var col = 2; col < 16; col++) {
+		if (col == 2 || col == 7 || col == 8 || col == 9 || col == 10 || col == 15)
+			setWall(10, col);
+	}
+
+	for (var col = 4; col < 14; col++) {
+		if (col == 4 || col == 5 || col == 12 || col == 13) {
+			setWall(9, col);
+			setWall(11, col);
+		}
+	}
+}
+
+function setWall(row, col) {
+	board[row][col] = 4;
+	// drawFood(row,col, 'black',10);
 }
 
 
-$(document).ready(function () {
-	context = canvas.getContext("2d");
-	Start();
-});
 
 function Start() {
 	board = new Array();
@@ -62,22 +88,11 @@ function Start() {
 	var cnt = 100;
 	var food_remain = 50;
 	var pacman_remain = 1;
-
-	//SETTINGS:
-	var monsters_remain = this.monsters_remain;
-
-	//END OF SETTINGS
-	///////////////
-
 	start_time = new Date();
-	keys.setDefualt();
-
 	for (var i = 0; i < 10; i++) {
 		board[i] = new Array();
 		//put obstacles in (i=3,j=3) and (i=3,j=4) and (i=3,j=5), (i=6,j=1) and (i=6,j=2)
 		for (var j = 0; j < 10; j++) {
-
-			//WALLS:
 			if (
 				(i == 3 && j == 3) ||
 				(i == 3 && j == 4) ||
@@ -86,15 +101,11 @@ function Start() {
 				(i == 6 && j == 2)
 			) {
 				board[i][j] = 4;
-
-				//FOOD:
 			} else {
 				var randomNum = Math.random();
 				if (randomNum <= (1.0 * food_remain) / cnt) {
 					food_remain--;
 					board[i][j] = 1;
-
-					//PACMANS:
 				} else if (randomNum < (1.0 * (pacman_remain + food_remain)) / cnt) {
 					shape.i = i;
 					shape.j = j;
@@ -107,16 +118,11 @@ function Start() {
 			}
 		}
 	}
-
-	//FOOD:
 	while (food_remain > 0) {
 		var emptyCell = findRandomEmptyCell(board);
 		board[emptyCell[0]][emptyCell[1]] = 1;
 		food_remain--;
 	}
-
-
-	//GAME KEYS:
 	keysDown = {};
 	addEventListener(
 		"keydown",
@@ -146,20 +152,16 @@ function findRandomEmptyCell(board) {
 }
 
 function GetKeyPressed() {
-	//UP
-	if (keysDown[keys.key_up]) {
+	if (keysDown[38]) {
 		return 1;
 	}
-	//DOWN
-	if (keysDown[keys.key_Down]) {
+	if (keysDown[40]) {
 		return 2;
 	}
-	//LEFT
-	if (keysDown[keys.key_Left]) {
+	if (keysDown[37]) {
 		return 3;
 	}
-	//RIGHT
-	if (keysDown[keys.key_right]) {
+	if (keysDown[39]) {
 		return 4;
 	}
 }
@@ -168,14 +170,11 @@ function Draw() {
 	canvas.width = canvas.width; //clean board
 	lblScore.value = score;
 	lblTime.value = time_elapsed;
-
 	for (var i = 0; i < 10; i++) {
 		for (var j = 0; j < 10; j++) {
 			var center = new Object();
 			center.x = i * 60 + 30;
 			center.y = j * 60 + 30;
-
-			//DRAW PACMAN
 			if (board[i][j] == 2) {
 				context.beginPath();
 				context.arc(center.x, center.y, 30, 0.15 * Math.PI, 1.85 * Math.PI); // half circle
@@ -186,34 +185,11 @@ function Draw() {
 				context.arc(center.x + 5, center.y - 15, 5, 0, 2 * Math.PI); // circle
 				context.fillStyle = "black"; //color
 				context.fill();
-
-				//DRAW FOOD
 			} else if (board[i][j] == 1) {
 				context.beginPath();
 				context.arc(center.x, center.y, 15, 0, 2 * Math.PI); // circle
 				context.fillStyle = "black"; //color
 				context.fill();
-
-				context.font = "20px Comic Sans MS";
-				context.fillStyle = "white";
-				context.fillText("10", center.x - 11, center.y + 7);
-
-
-				// context.beginPath();
-				// context.arc(center.x, center.y, 30, 0.15 * Math.PI, 1.85 * Math.PI); // half circle
-				// context.lineTo(center.x, center.y);
-				// context.fillStyle = pac_color; //color
-				// context.fill();
-				// context.beginPath();
-				// context.arc(center.x + 5, center.y - 15, 5, 0, 2 * Math.PI); // circle
-				// context.fillStyle = "black"; //color
-				// context.fill();
-
-
-
-
-
-				//DRAW WALL
 			} else if (board[i][j] == 4) {
 				context.beginPath();
 				context.rect(center.x - 30, center.y - 30, 60, 60);
@@ -224,40 +200,29 @@ function Draw() {
 	}
 }
 
-//draw A MONSTER:
-// var pic = new Image();
-// pic.src = "characters/red.png";
-// context.drawImage(pic, center.x - 27, center.y - 30, 55, 55);
-
-
 function UpdatePosition() {
 	board[shape.i][shape.j] = 0;
 	var x = GetKeyPressed();
-	//UP
 	if (x == 1) {
 		if (shape.j > 0 && board[shape.i][shape.j - 1] != 4) {
 			shape.j--;
 		}
 	}
-	//DOWN
 	if (x == 2) {
 		if (shape.j < 9 && board[shape.i][shape.j + 1] != 4) {
 			shape.j++;
 		}
 	}
-	//LEFT
 	if (x == 3) {
 		if (shape.i > 0 && board[shape.i - 1][shape.j] != 4) {
 			shape.i--;
 		}
 	}
-	//RIGHT
 	if (x == 4) {
 		if (shape.i < 9 && board[shape.i + 1][shape.j] != 4) {
 			shape.i++;
 		}
 	}
-	// PACMAN EAT FOOD
 	if (board[shape.i][shape.j] == 1) {
 		score++;
 	}
@@ -273,4 +238,50 @@ function UpdatePosition() {
 	} else {
 		Draw();
 	}
+}
+
+
+// DRAWING:
+function drawGhost(row, col, ghostName) {
+	let img = document.createElement("img");
+	img.src = "./images/ghosts/" + ghostName + ".png";
+	img.addEventListener("load", function () {
+		let center = new Object();
+		center.x = col * 40;
+		center.y = row * 40 - 7;
+		context.drawImage(img, center.x, center.y, 50, 50);
+	});
+}
+
+function drawPacman(row, col, color) {
+	let center = new Object();
+	center.x = col * 40 + 20;
+	center.y = row * 40 + 20;
+	context.beginPath();
+	context.arc(center.x, center.y, 22, 0.15 * Math.PI, 1.85 * Math.PI); // half circle
+	context.lineTo(center.x, center.y);
+	context.fillStyle = color; //color
+	context.fill();
+
+	//eye:
+	context.beginPath();
+	context.arc(center.x + 5, center.y - 15, 3, 0, 2 * Math.PI); // circle
+	context.fillStyle = "black"; //color
+	context.fill();
+}
+
+function drawFood(row, col, color, points) {
+	let center = new Object();
+	center.x = col * 40 + 20;
+	center.y = row * 40 + 20;
+
+	context.beginPath();
+	context.arc(center.x, center.y, 15, 0, 2 * Math.PI); // circle
+	context.fillStyle = color; //color
+	context.fill();
+
+	context.font = "20px Comic Sans MS";
+	context.fillStyle = "white";
+	context.fillText(points, center.x - 11, center.y + 7);
+
 }

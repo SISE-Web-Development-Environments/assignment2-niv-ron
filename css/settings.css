@@ -33,20 +33,18 @@
 
 
 #ghostBlinky{
-    /* border: solid 2px red;
-    background-color: gray; */
-    background-image: url("../images/characters/Blinky.png");
+    background-image: url("../images/ghosts/Blinky.png");
 }
 
 #ghostClyde{
-    background-image: url("../images/characters/Clyde.png");
+    background-image: url("../images/ghosts/Clyde.png");
 
 }
 #ghostInky{
-    background-image: url("../images/characters/Inky.png");
+    background-image: url("../images/ghosts/Inky.png");
 }
 #ghostPinky{
-    background-image: url("../images/characters/pinky.png");
+    background-image: url("../images/ghosts/pinky.png");
 }
 
 .ghostname{

@@ -11,6 +11,7 @@ function getStorage(obj) {
         let arr = JSON.parse(retrievedData);
         return arr;
     }
+    return false;
 }
 
 function buildUsersList() {
@@ -59,9 +60,10 @@ function areCorrectUsersInfoSaved() {
     let emails1 = localStorage.getItem('emails');
 
     if (users1 && passwords1 && fnames1 && lnames1 && birthdays1 && emails1) {
-        let users = getStorage('users');
-        let passwords = getStorage('passwords');
-        if (users[0] == 'p' && passwords[0] == 'p')
+        let users2 = getStorage('users');
+        let passwords2 = getStorage('passwords');
+        alert(users2[0]);
+        if (users2[0] == 'p' && passwords2[0] == 'p')
             return true;
     }
     return false;

@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="css/footer.css" />
 
     <script src="scripts/jquery-3.4.1.slim.min.js"></script>
-    <script type="text/javascript" src="scripts/app.js"></script>
+    <script type="text/javascript" src="scripts/app2.js"></script>
 
     <script type="text/javascript" src="scripts/storageManager.js"></script>
     <script type="text/javascript" src="scripts/scripts.js"></script>
@@ -418,27 +418,29 @@
 
         <!-- GAME BOARD -->
         <div id="game_grid" class="game">
-            <div>
-                <div class="box-left">
-                    <table>
-                        <tr>
-                            <div id="score">
-                                <label for="lblScore">SCORE:</label>
-                                <input id="lblScore" type="text" />
-                            </div>
-                        </tr>
-                        <tr>
-                            <div id="time">
-                                <label for="lblTime">TIME:</label>
-                                <input id="lblTime" type="text" />
-                            </div>
-                        </tr>
-                    </table>
-                </div>
-                <div id="game">
-                    <canvas id="canvas" height="600" width="600"></canvas>
-                </div>
+            <div class="box-left">
+                <table>
+                    <tr>
+                        <div id="score">
+                            <label for="lblScore">SCORE:</label>
+                            <input id="lblScore" type="button" class="gameInfo" />
+                        </div>
+                    </tr>
+                    <tr>
+                        <div id="time">
+                            <label for="lblTime">TIME:</label>
+                            <input id="lblTime" type="button" class="gameInfo" />
+                        </div>
+
+                    </tr>
+                </table>
             </div>
+
+            <div id="game">
+                <canvas id="canvas" height="520" width="720"></canvas>
+            </div>
+
+            <div class="header-right">RIGHT</div>
         </div>
         <!-- GAME BOARD -->
 
