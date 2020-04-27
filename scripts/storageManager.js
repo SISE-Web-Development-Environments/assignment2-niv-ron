@@ -8,8 +8,8 @@ var lnames;
 function getStorage(obj) {
     if (localStorage.getItem(obj)) {
         let retrievedData = localStorage.getItem(obj);
-        let a = JSON.parse(retrievedData);
-        return a;
+        let arr = JSON.parse(retrievedData);
+        return arr;
     }
 }
 
@@ -51,14 +51,16 @@ function updateLocalStorage() {
 }
 
 function areCorrectUsersInfoSaved() {
-    let users = localStorage.getItem('users');
-    let passwords = localStorage.getItem('passwords');
-    let fnames = localStorage.getItem('fnames');
-    let lnames = localStorage.getItem('lnames');
-    let birthdays = localStorage.getItem('birthdays');
-    let emails = localStorage.getItem('emails');
-    
-    if (users && passwords && fnames && lnames && birthdays && emails) {
+    let users1 = localStorage.getItem('users');
+    let passwords1 = localStorage.getItem('passwords');
+    let fnames1 = localStorage.getItem('fnames');
+    let lnames1 = localStorage.getItem('lnames');
+    let birthdays1 = localStorage.getItem('birthdays');
+    let emails1 = localStorage.getItem('emails');
+
+    if (users1 && passwords1 && fnames1 && lnames1 && birthdays1 && emails1) {
+        let users = getStorage('users');
+        let passwords = getStorage('passwords');
         if (users[0] == 'p' && passwords[0] == 'p')
             return true;
     }
