@@ -83,3 +83,32 @@ function setProfileDiv(username) {
     $('#profile_lname').attr('placeholder', this.user.lname);
     $('#profile_bday').attr('placeholder', this.user.bday);
 }
+
+function updatePass() {
+    if (user.username == 'p') {
+        alert("you aren't allowed to change this account password");
+    } else {
+        let pass = $('#profile_pass').val();
+        let isValid = true;
+        $(".error").remove();
+        if (pass.length < 6) {
+            $('#profile_pass').after('<span class="error">Password is too short</span>');
+            isValid = false;
+        } else if (!isContainLetter(pass)) {
+            $('#profile_pass').after('<span class="error">Password must contain a character</span>');
+            isValid = false;
+        } else if (!isContainNumber(pass)) {
+            $('#profile_pass').after('<span class="error">Password must contain a number</span>');
+            isValid = false;
+        }
+        if (isValid) {
+            for (var i = 0; i < users.length; i++) {
+                if (user.username == users[i]) {
+                    passwords[i] = pass;
+                    updateLocalStorage();
+                    alert("password changed");
+                }
+            }
+        }
+    }
+}

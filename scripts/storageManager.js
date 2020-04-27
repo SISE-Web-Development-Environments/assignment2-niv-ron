@@ -26,7 +26,7 @@ function buildUsersList() {
         this.passwords = ['p'];
         this.emails = ['inbalros@post.bgu.ac.il'];
         this.fnames = ['Inbal'];
-        this.lnames = ['Roshansky'];
+        this.lnames = ['Roshanski'];
         this.birthdays = [''];
         updateLocalStorage();
     }
@@ -48,4 +48,19 @@ function updateLocalStorage() {
     localStorage.setItem("birthdays", JSON.stringify(this.birthdays));
     localStorage.setItem("fnames", JSON.stringify(this.fnames));
     localStorage.setItem("lnames", JSON.stringify(this.lnames));
+}
+
+function areCorrectUsersInfoSaved() {
+    let users = localStorage.getItem('users');
+    let passwords = localStorage.getItem('passwords');
+    let fnames = localStorage.getItem('fnames');
+    let lnames = localStorage.getItem('lnames');
+    let birthdays = localStorage.getItem('birthdays');
+    let emails = localStorage.getItem('emails');
+    
+    if (users && passwords && fnames && lnames && birthdays && emails) {
+        if (users[0] == 'p' && passwords[0] == 'p')
+            return true;
+    }
+    return false;
 }
