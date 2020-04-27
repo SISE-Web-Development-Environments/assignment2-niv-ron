@@ -1,155 +1,111 @@
 var context;
 var shape = new Object();
-var board;
+var board = new Array();;
 var score;
 var pac_color;
 var start_time;
 var time_elapsed;
 var interval;
 
+var food_remain = 50;
+
+const rows = 13;
+const cols = 18;
+
+function createEmptyMaze() {
+	for (var row = 0; row < rows; row++) {
+		board[row] = new Array();
+		for (var col = 0; col < cols; col++) {
+			board[row][col] = 0;
+		}
+	}
+}
+
 $(document).ready(function () {
 	context = canvas.getContext("2d");
-	// Start();
-	drawPacman(10, 10, 'yellow');
-	drawFood(10, 11, 'black', 10);
-	drawGhost(10, 12, 'blinky');
+	createEmptyMaze();
 	setWalls();
+	putFoodRandomaly();
+
+	// alert(food_remain);
+	// context = canvas.getContext("2d");
+	// alert(Math.floor(Math.random() * rows));
+	// Start();
+	// drawPacman(10, 10, 'yellow');
+	// drawFood(10, 11, 'black', 10);
+	// drawGhost(10, 12, 'blinky');
+	// setWalls();
 });
 
-function setWalls() {
-	// frame:
-	for (var col = 0; col < 18; col++)
-		setWall(0, col);
-	for (var col = 0; col < 18; col++)
-		setWall(12, col);
-	for (var row = 1; row < 12; row++) {
-		if (row != 6)
-			setWall(row, 0);
-	}
-	for (var row = 1; row < 12; row++) {
-		if (row != 6)
-			setWall(row, 17);
-	}
-	// by rows:
-	for (var col = 4; col < 14; col++) {
-		if (col ==4|| col ==13)
-			setWall(1, col);
-	}
-	for (var col = 2; col < 16; col++) {
-		if (col == 2 || col == 6 || col == 7 || col == 10 || col == 11 || col == 15)
-			setWall(2, col);
-	}
-	for (var col = 2; col < 16; col++) {
-		if (col ==2||  col ==3||col ==5|| col ==12|| col ==14|| col ==15) 
-			setWall(3, col);
-	}
-	for (var col = 2; col < 16; col++) {
-		if (col ==3||  col ==7||  col ==10||  col ==14) 
-			setWall(4, col);
-	}
-	for (var col = 1; col < 17; col++) {
-		if (col == 1|| col ==3 || col == 4 || col == 6 || col == 11 || col == 13|| col ==14 || col == 16)
-			setWall(5, col);
-	}
-	for (var col = 6; col < 12; col++)
-		setWall(6, col);
-	for (var col = 1; col < 17; col++) {
-		if (col == 1 || col == 3 || col == 4 || col == 13 || col == 14 || col == 16)
-			setWall(7, col);
-	}
-	for (var col = 1; col < 17; col++)
-		if (col == 1 || col == 3 || col == 4 || col == 5 || col == 6 || col == 7 || col == 10 || col == 11 || col == 12 || col == 13 || col == 14 || col == 16)
-			setWall(8, col);
-
-	for (var col = 2; col < 16; col++) {
-		if (col == 2 || col == 7 || col == 8 || col == 9 || col == 10 || col == 15)
-			setWall(10, col);
-	}
-
-	for (var col = 4; col < 14; col++) {
-		if (col == 4 || col == 5 || col == 12 || col == 13) {
-			setWall(9, col);
-			setWall(11, col);
-		}
-	}
+function isEmpty(row, col) {
+	return (board[row][col] == 0);
 }
 
-function setWall(row, col) {
-	board[row][col] = 4;
-	// drawFood(row,col, 'black',10);
+function random(bound) {
+	return Math.floor(Math.random() * bound);
 }
 
-
-
-function Start() {
-	board = new Array();
-	score = 0;
-	pac_color = "yellow";
-	var cnt = 100;
-	var food_remain = 50;
-	var pacman_remain = 1;
-	start_time = new Date();
-	for (var i = 0; i < 10; i++) {
-		board[i] = new Array();
-		//put obstacles in (i=3,j=3) and (i=3,j=4) and (i=3,j=5), (i=6,j=1) and (i=6,j=2)
-		for (var j = 0; j < 10; j++) {
-			if (
-				(i == 3 && j == 3) ||
-				(i == 3 && j == 4) ||
-				(i == 3 && j == 5) ||
-				(i == 6 && j == 1) ||
-				(i == 6 && j == 2)
-			) {
-				board[i][j] = 4;
-			} else {
-				var randomNum = Math.random();
-				if (randomNum <= (1.0 * food_remain) / cnt) {
-					food_remain--;
-					board[i][j] = 1;
-				} else if (randomNum < (1.0 * (pacman_remain + food_remain)) / cnt) {
-					shape.i = i;
-					shape.j = j;
-					pacman_remain--;
-					board[i][j] = 2;
-				} else {
-					board[i][j] = 0;
-				}
-				cnt--;
-			}
-		}
+function findEmptyCell() {
+	let row = random(rows);
+	let col = random(cols);
+	while (!isEmpty(row, col)) {
+		row = random(rows);
+		col = random(cols);
 	}
+	return [row, col];
+}
+
+function putFoodRandomaly() {
+	let cell = findEmptyCell();
+	let row;
+	let col;
 	while (food_remain > 0) {
-		var emptyCell = findRandomEmptyCell(board);
-		board[emptyCell[0]][emptyCell[1]] = 1;
+		cell = findEmptyCell();
+		row = cell[0];
+		col = cell[1];
+		board[row][col] = 1;
+		drawFood(row, col, 'black', 15);
 		food_remain--;
 	}
-	keysDown = {};
-	addEventListener(
-		"keydown",
-		function (e) {
-			keysDown[e.keyCode] = true;
-		},
-		false
-	);
-	addEventListener(
-		"keyup",
-		function (e) {
-			keysDown[e.keyCode] = false;
-		},
-		false
-	);
-	interval = setInterval(UpdatePosition, 250);
 }
 
-function findRandomEmptyCell(board) {
-	var i = Math.floor(Math.random() * 9 + 1);
-	var j = Math.floor(Math.random() * 9 + 1);
-	while (board[i][j] != 0) {
-		i = Math.floor(Math.random() * 9 + 1);
-		j = Math.floor(Math.random() * 9 + 1);
-	}
-	return [i, j];
-}
+// function Start() {
+// 	board = new Array();
+// 	score = 0;
+// 	pac_color = "yellow";
+// 	var cnt = 100;
+// 	var food_remain = 50;
+// 	var pacman_remain = 1;
+// 	start_time = new Date();
+
+// 	for (var row = 0; row < row; row++) {
+// 		board[row] = new Array();
+// 		for (var col = 0; col < cols; col++) {
+// 			board[row][col] = 0;
+// 		}
+// 	}
+// 	setWalls();
+
+// 	for (var row = 0; row < 13; row++) {
+// 		for (var col = 0; col < 18; col++) {
+// 			if(isPath(row,col)){
+
+// 			}
+
+// 		}
+// 	}
+
+// }
+
+// function findRandomEmptyCell(board) {
+// 	var i = Math.floor(Math.random() * 9 + 1);
+// 	var j = Math.floor(Math.random() * 9 + 1);
+// 	while (board[i][j] != 0) {
+// 		i = Math.floor(Math.random() * 9 + 1);
+// 		j = Math.floor(Math.random() * 9 + 1);
+// 	}
+// 	return [i, j];
+// }
 
 function GetKeyPressed() {
 	if (keysDown[38]) {
@@ -273,8 +229,7 @@ function drawPacman(row, col, color) {
 function drawFood(row, col, color, points) {
 	let center = new Object();
 	center.x = col * 40 + 20;
-	center.y = row * 40 + 20;
-
+	center.y = row * 40 + 18;
 	context.beginPath();
 	context.arc(center.x, center.y, 15, 0, 2 * Math.PI); // circle
 	context.fillStyle = color; //color
@@ -283,5 +238,70 @@ function drawFood(row, col, color, points) {
 	context.font = "20px Comic Sans MS";
 	context.fillStyle = "white";
 	context.fillText(points, center.x - 11, center.y + 7);
+}
 
+
+function setWalls() {
+	// frame:
+	for (var col = 0; col < 18; col++)
+		setWall(0, col);
+
+	for (var col = 0; col < 18; col++)
+		setWall(12, col);
+
+	for (var row = 1; row < 12; row++) {
+		if (row != 6)
+			setWall(row, 0);
+	}
+	for (var row = 1; row < 12; row++) {
+		if (row != 6)
+			setWall(row, 17);
+	}
+	// by rows:
+	for (var col = 4; col < 14; col++) {
+		if (col == 4 || col == 13)
+			setWall(1, col);
+	}
+	for (var col = 2; col < 16; col++) {
+		if (col == 2 || col == 6 || col == 7 || col == 10 || col == 11 || col == 15)
+			setWall(2, col);
+	}
+	for (var col = 2; col < 16; col++) {
+		if (col == 2 || col == 3 || col == 5 || col == 12 || col == 14 || col == 15)
+			setWall(3, col);
+	}
+	for (var col = 2; col < 16; col++) {
+		if (col == 3 || col == 7 || col == 10 || col == 14)
+			setWall(4, col);
+	}
+	for (var col = 1; col < 17; col++) {
+		if (col == 1 || col == 3 || col == 4 || col == 6 || col == 11 || col == 13 || col == 14 || col == 16)
+			setWall(5, col);
+	}
+	for (var col = 6; col < 12; col++)
+		setWall(6, col);
+	for (var col = 1; col < 17; col++) {
+		if (col == 1 || col == 3 || col == 4 || col == 13 || col == 14 || col == 16)
+			setWall(7, col);
+	}
+	for (var col = 1; col < 17; col++)
+		if (col == 1 || col == 3 || col == 4 || col == 5 || col == 6 || col == 7 || col == 10 || col == 11 || col == 12 || col == 13 || col == 14 || col == 16)
+			setWall(8, col);
+
+	for (var col = 2; col < 16; col++) {
+		if (col == 2 || col == 7 || col == 8 || col == 9 || col == 10 || col == 15)
+			setWall(10, col);
+	}
+
+	for (var col = 4; col < 14; col++) {
+		if (col == 4 || col == 5 || col == 12 || col == 13) {
+			setWall(9, col);
+			setWall(11, col);
+		}
+	}
+}
+
+function setWall(row, col) {
+	this.board[row][col] = 4;
+	// drawGhost(row,col, 'blinky');
 }

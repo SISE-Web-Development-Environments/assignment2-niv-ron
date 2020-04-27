@@ -8,7 +8,7 @@ $(document).ready(function () {
 
     //SHOW: menu, welcome
     showMenu();
-    // $('.content').css('display', 'none');
+    //$('.content').css('display', 'none');
 
     //STORAGE INITIALIZATION:
     sessionStorage.clear();
