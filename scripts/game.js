@@ -32,6 +32,7 @@ function start() {
 	food_remain = 50;
 	lives = 5;
 	start_time = new Date();
+	// drawPacman(6,17,'white',20);
 
 	createEmptyMaze();
 	setWalls();
@@ -93,24 +94,30 @@ function GetKeyPressed() {
 function UpdatePosition() {
 	board[shape.i][shape.j] = 0;
 	var x = GetKeyPressed();
-	if (x == 1) {
+	if (x == 1) {//up
 		if (shape.i > 0 && board[shape.i - 1][shape.j] != 4) {
 			shape.i--;
 		}
 	}
-	if (x == 2) {
+	if (x == 2) {//down
 		if (shape.i < rows && board[shape.i + 1][shape.j] != 4) {
 			shape.i++;
 		}
 	}
-	if (x == 3) {
-		if (shape.j > 0 && board[shape.i][shape.j - 1] != 4) {
-			shape.j--;
+	if (x == 3) {//left
+		if (board[shape.i][shape.j - 1] != 4) {
+			if (shape.j > 0)
+				shape.j--;
+			else
+				shape.j = cols - 1;
 		}
 	}
-	if (x == 4) {
-		if (shape.j < cols && board[shape.i][shape.j + 1] != 4) {
-			shape.j++;
+	if (x == 4) {//right
+		if (board[shape.i][shape.j + 1] != 4) {
+			if (shape.j + 1 < cols)
+				shape.j++;
+			else
+				shape.j = 0;
 		}
 	}
 	if (board[shape.i][shape.j] == 1) {

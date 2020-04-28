@@ -33,15 +33,15 @@
 
 
 #ghostBlinky{
-    background-image: url("../images/ghosts/Blinky.png");
+    background-image: url("../images/ghosts/blinky.png");
 }
 
 #ghostClyde{
-    background-image: url("../images/ghosts/Clyde.png");
+    background-image: url("../images/ghosts/clyde.png");
 
 }
 #ghostInky{
-    background-image: url("../images/ghosts/Inky.png");
+    background-image: url("../images/ghosts/inky.png");
 }
 #ghostPinky{
     background-image: url("../images/ghosts/pinky.png");
