@@ -1,6 +1,6 @@
 #game{
     border: solid black;
-    background-image: url("../images/mazes_grids/black_red.PNG");
+    background-image: url("./images/mazes_grids/black_red.PNG");
     background-size: 720px 520px;
     background-repeat: no-repeat;
     
