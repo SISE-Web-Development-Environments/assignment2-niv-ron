@@ -3,11 +3,12 @@ var isConnected = false;
 
 $(document).ready(function () {
     //HIDE: game, contents
-    $('.game').css('display', 'none');
+    $('.game').css('display', 'block');
     $('.col').css('display', 'none');
 
     //SHOW: menu, welcome
-    showMenu();
+    // showMenu();
+    $('.content').css('display', 'none');
     
     //STORAGE INITIALIZATION:
     sessionStorage.clear();

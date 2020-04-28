@@ -17,10 +17,10 @@ const cols = 18;
 $(document).ready(function () {
 	ctx = canvas.getContext("2d");
 	start();
-	// for (var i = 0; i < rows; i++) {
-	// 	for (var j = 0; j < cols; j++) {
-	// 	}
-	// }
+	for (var i = 0; i < rows; i++) {
+		for (var j = 0; j < cols; j++) {
+		}
+	}
 
 });
 

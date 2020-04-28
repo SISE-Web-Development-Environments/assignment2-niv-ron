@@ -7,7 +7,7 @@ function draw() {
 			if (board[i][j] == 2) { //pacman
 				drawPacman(i, j, pac_color);
 			} else if (board[i][j] == 1) { //food
-				drawFood(i, j, 'black', 25);
+				drawFood(i, j, 'white', 25);
 			}
 		}
 	}
@@ -51,6 +51,22 @@ function drawFood(row, col, color, points) {
 	ctx.fill();
 
 	ctx.font = "20px Comic Sans MS";
-	ctx.fillStyle = "white";
+	ctx.fillStyle = "black";
 	ctx.fillText(points, center.x - 11, center.y + 7);
+}
+
+function drawFoodByImg(row, col,color, points) {
+	let img = document.createElement("img");
+	img.src = "../images/powerPellets/"+color+".png";
+	let center = new Object();
+	center.x = col * 30;
+	center.y = row * 40 - 7;
+	img.addEventListener("load", function () {
+		ctx.drawImage(img, center.x, center.y, 50, 50);
+		ctx.font = "20px Comic Sans MS";
+		ctx.fillStyle = "white";
+		// ctx.fillText("25", 10, 10+20);
+		ctx.fillText(points, center.x+13 , center.y+32);
+	});
+	
 }
