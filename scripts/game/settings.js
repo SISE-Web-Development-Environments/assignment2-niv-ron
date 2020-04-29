@@ -1,14 +1,4 @@
-$(document).ready(function () {
-    showKeysIcons();
-    listener_changingKeysByUser();
-});
-
-function showKeysIcons() {
-    document.getElementById("keyup").style.backgroundImage = "url('./images/keys/" + keys.up + ".png')";
-    document.getElementById("keydown").style.backgroundImage = "url('./images/keys/" + keys.down + ".png')";
-    document.getElementById("keyleft").style.backgroundImage = "url('./images/keys/" + keys.left + ".png')";
-    document.getElementById("keyright").style.backgroundImage = "url('./images/keys/" + keys.right + ".png')";
-}
+var timmer = 60;
 var keys = {
     isCorrect: true,
     up: 38, down: 40, left: 37, right: 39,
@@ -30,9 +20,23 @@ var keys = {
     }
 };
 var inputKeys = {
-    up: keys.up, down: keys.down, left: keys.left, right: keys.right, 
-    setDefault: function () {this.up = 38; this.down = 40; this.left = 37; this.right = 39;}
+    up: keys.up, down: keys.down, left: keys.left, right: keys.right,
+    setDefault: function () { this.up = 38; this.down = 40; this.left = 37; this.right = 39; }
 };
+
+$(document).ready(function () {
+    showKeysIcons();
+    listener_changingKeysByUser();
+});
+
+function btn_startgame() {
+    if (this.isConnected) {
+        if (btn_saveKeys())
+            play();
+    }
+    else
+        alert("please connect first.");
+}
 
 function btn_saveKeys() {
     return keys.changeKeys(inputKeys.up, inputKeys.down, inputKeys.left, inputKeys.right);
@@ -72,13 +76,21 @@ function listener_changingKeysByUser() {
     });
 }
 
-function btn_startgame() {
-    if (this.isConnected) {
-        if (btn_saveKeys())
-            play();
-    }
-    else
-        alert("please connect first.");
+function showKeysIcons() {
+    document.getElementById("keyup").style.backgroundImage = "url('./images/keys/" + keys.up + ".png')";
+    document.getElementById("keydown").style.backgroundImage = "url('./images/keys/" + keys.down + ".png')";
+    document.getElementById("keyleft").style.backgroundImage = "url('./images/keys/" + keys.left + ".png')";
+    document.getElementById("keyright").style.backgroundImage = "url('./images/keys/" + keys.right + ".png')";
 }
 
+function setGhost(ghostID) {
+    $('#' + ghostID).css('border', '2px solid blue');
+}
 
+function setTime(time) {
+    if (time.value < 60) {
+        time.value = 60;
+        alert("Time for that mission can't be less than 60 seconds");
+    } else
+        this.timmer = time;
+}
