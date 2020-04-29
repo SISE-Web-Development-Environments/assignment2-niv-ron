@@ -20,18 +20,6 @@ function hideContent() {
     $('.content').css('display', 'none');
 }
 
-function play() {
-    $('.content').css('display', 'none');
-    $('#game_grid').css('display', 'block');
-    $(document).on(
-        'keydown',
-        function (event) {
-            if (event.key == "Escape") {
-                showMenu();
-				show('settings')
-            }
-        });
-}
 
 function show(obj) {
     $('#' + shown).css('display', 'none');
