@@ -7,7 +7,8 @@ function draw() {
 			if (board[i][j] == 2) { //pacman
 				drawPacman(i, j);
 			} else if (board[i][j] == 1) { //food
-				drawFood(i, j, 'white', 25);
+				// drawFoodByImg(i, j, 'yellow', 25);
+				drawFood(i, j, 'yellow', 25);
 			}
 		}
 	}
@@ -65,18 +66,18 @@ function drawFoodByImg(row, col, color, points) {
 	let img = document.createElement("img");
 	img.src = "../images/powerPellets/" + color + ".png";
 	let center = new Object();
-	center.x = col * 30;
-	center.y = row * 40 - 7;
+	center.x = col * 39.5 + 6;
+	center.y = row * 40 + 5;
 	img.addEventListener("load", function () {
-		ctx.drawImage(img, center.x, center.y, 50, 50);
-		ctx.font = "20px Comic Sans MS";
+		ctx.drawImage(img, center.x, center.y, 30, 30);
+		ctx.font = "15px Comic Sans MS";
 		ctx.fillStyle = "white";
 		// ctx.fillText("25", 10, 10+20);
-		ctx.fillText(points, center.x + 13, center.y + 32);
+		ctx.fillText(points, center.x +5, center.y +20);
 	});
 }
 
-function drawGhost(row, col, color) {
+function drawGhost(row, col, color,direction) {
 	let center = new Object();
 	center.x = col * 40 + 20;
 	center.y = row * 40 + 18;
@@ -103,7 +104,7 @@ function drawGhost(row, col, color) {
 	ctx.lineWidth = 2;
 	ctx.fill();
 	//eyes:
-	drawGhostEyes(center);
+	drawGhostEyes(center,direction);
 }
 
 function drawGhostEyes(center, direction) {

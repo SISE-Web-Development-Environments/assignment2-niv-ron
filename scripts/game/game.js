@@ -17,7 +17,6 @@ var playerDirection;
 
 $(document).ready(function () {
 	ctx = canvas.getContext("2d");
-	// drawPacman(0,0);
 	start();
 });
 
@@ -74,19 +73,19 @@ function setRandomPacmanPosition() {
 
 function GetKeyPressed() {
 	if (keysDown[keys.up]) {
-		playerDirection='up';
+		playerDirection = 'up';
 		return 1;
 	}
 	if (keysDown[keys.down]) {
-		playerDirection='down';
+		playerDirection = 'down';
 		return 2;
 	}
 	if (keysDown[keys.left]) {
-		playerDirection='left';
+		playerDirection = 'left';
 		return 3;
 	}
 	if (keysDown[keys.right]) {
-		playerDirection='right';
+		playerDirection = 'right';
 		return 4;
 	}
 }
