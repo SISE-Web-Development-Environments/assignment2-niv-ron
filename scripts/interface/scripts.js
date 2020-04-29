@@ -28,6 +28,7 @@ function play() {
         function (event) {
             if (event.key == "Escape") {
                 showMenu();
+				show('settings')
             }
         });
 }
