@@ -13,14 +13,16 @@
 
     <script src="scripts/jquery-3.4.1.slim.min.js"></script>
 
+    <script type="text/javascript" src="scripts/game/app.js"></script>
+
     <script type="text/javascript" src="scripts/interface/storageManager.js"></script>
     <script type="text/javascript" src="scripts/interface/scripts.js"></script>
     <script type="text/javascript" src="scripts/interface/login.js"></script>
     <script type="text/javascript" src="scripts/interface/register.js"></script>
 
-    <script type="text/javascript" src="scripts/game/drawings.js"></script>
-    <script type="text/javascript" src="scripts/game/buildingMaze.js"></script>
-    <script type="text/javascript" src="scripts/game/game.js"></script>
+    <!-- <script type="text/javascript" src="scripts/game/drawings.js"></script> -->
+    <!-- <script type="text/javascript" src="scripts/game/buildingMaze.js"></script> -->
+    <!-- <script type="text/javascript" src="scripts/game/game.js"></script> -->
     <script type="text/javascript" src="scripts/game/settings.js"></script>
     <script type="text/javascript" src="scripts/game/settings2.js"></script>
 
@@ -424,23 +426,35 @@
             <div class="box-left">
                 <table>
                     <tr>
+                        <div id="name">
+                            <label for="lblName">Pacman Name:</label>
+                            <input id="lblName" type="text" />
+                        </div>
+                    </tr>
+                    <tr>
                         <div id="score">
                             <label for="lblScore">SCORE:</label>
-                            <input id="lblScore" type="button" class="gameInfo" />
+                            <input id="lblScore" type="text" />
+                        </div>
+                    </tr>
+                    <tr>
+                        <div id="lives">
+                            <label for="lblLives">LIVES:</label>
+                            <input id="lblLives" type="text" />
                         </div>
                     </tr>
                     <tr>
                         <div id="time">
                             <label for="lblTime">TIME:</label>
-                            <input id="lblTime" type="button" class="gameInfo" />
+                            <input id="lblTime" type="text" />
                         </div>
-
                     </tr>
                 </table>
             </div>
 
             <div id="game">
-                <canvas id="canvas" height="520" width="720"></canvas>
+                <!-- <canvas id="canvas" height="520" width="720"></canvas> -->
+                <canvas class="mycanvas" id="canvas" height="780" width="1080"></canvas>
             </div>
 
             <div class="header-right">RIGHT</div>
