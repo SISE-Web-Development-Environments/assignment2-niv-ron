@@ -29,14 +29,26 @@ $(document).ready(function () {
     listener_changingKeysByUser();
 });
 
-// function btn_startgame() {
-//     if (this.isConnected) {
-//         if (btn_saveKeys())
-//             play();
-//     }
-//     else
-//         alert("please connect first.");
-// }
+function btn_startNewGame() {
+	$('.content').css('display', 'none');
+	$('#game_grid').css('display', 'block');
+	startNewGame();
+	$(document).on(
+		'keydown',
+		function (event) {
+			if (event.key == "Escape") {
+				showMenu();
+				show('settings')
+			}
+		});
+}
+
+function returnToGame() {
+	if (gameIsOn) {
+		$('.content').css('display', 'none');
+		$('#game_grid').css('display', 'block');
+	}
+}
 
 function btn_saveKeys() {
     return keys.changeKeys(inputKeys.up, inputKeys.down, inputKeys.left, inputKeys.right);

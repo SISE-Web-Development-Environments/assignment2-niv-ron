@@ -1,12 +1,12 @@
 #game{
     border: solid black;
     background-image: url("../images/mazes_grids/dark_blue.png");
-    /* background-size: 720px 520px; */
+    background-size: 720px 520px;
     background-size: cover;
     background-repeat: no-repeat;
     background-color: gainsboro;
-    width: 1080px;
-    height: 780px;
+    width: 720px;;
+    height: 520px;
     margin: auto; 
      position: absolute;
     left: 0;
