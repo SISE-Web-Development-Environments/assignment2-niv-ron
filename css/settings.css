@@ -23,8 +23,8 @@
 }
 
 .ghostbutton {
-    width: 70px;
-    height: 70px;
+    width: 50px;
+    height: 50px;
     background-size: cover;
     border-radius: 8px;
     background-color: white;
@@ -52,9 +52,7 @@
     text-align: center;
 }
 
-#setTime{
-    width: 70px;
-}
+
 
 .setPowerPellet{
     width: 50px;
@@ -88,6 +86,24 @@
 
 #btn_startgame{
     float: left;
-    
 }
 
+/* .setTime{
+    float: left;
+    width: 100px;
+    margin-right: 10px;
+    border: solid gainsboro;
+}
+
+.setBalls{
+    float: left;
+   border: solid gainsboro;
+     margin: 20px; 
+    padding:10px; 
+} */
+
+.setSettings{
+    border: 0.5px solid gainsboro;
+    width: 100%;
+    margin-bottom: 2px;
+}

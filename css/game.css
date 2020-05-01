@@ -57,3 +57,19 @@ table{
 /* table, td{
     border: red solid 2px;
 } */
+
+.img_paclive{
+    width: 40px;
+}
+
+.gameStatus{
+    width: 230px;
+    border: solid 2px gray;
+    min-height: 80px;
+    margin: auto;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    padding-top:10px;
+    background-color: white;
+}
+

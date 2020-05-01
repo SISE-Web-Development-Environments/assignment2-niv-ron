@@ -51,10 +51,6 @@ function endGame() {
 	showMenu();
 }
 
-// function gameManager(){
-// 	playTheme();
-// 	setTimeout(() => { startNewGame(); }, 2500);
-// }
 
 
 

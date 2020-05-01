@@ -292,56 +292,69 @@
                     <div class="card">
                         <div class="card-header" id="headingOne" style="height: auto; padding: 0;">
                             <button class="btn" type="button" data-toggle="collapse" data-target="#collapseOne">
-                                Power Pellets | Monsters | Set Time
+                                Set Time | Power Pellets | Ghosts
                             </button>
                         </div>
 
                         <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
                             data-parent="#accordionExample">
                             <div class="card-body">
-                                <table>
-                                    <tr>
-                                        <td>SET TIME</td>
-                                        <td>
-                                            <input type="number" id="setTime" value="60" onchange="setTime(this);">
-                                        </td>
-                                        <td>
-                                            <div>
-                                                <button type="button" id="p5" class="setPowerPellet"
+
+                                <div id="setTime" class="setSettings">
+                                    <span style="margin: 10px;">SET TIME:</span>
+                                    <input type="number" id="setTimmer" value="60" onchange="setTime(this);"
+                                        style="width: 70px;">
+                                </div>
+
+                                <div id="setBalls" class="setSettings">
+                                    <!-- <button type="button" id="p5" class="setPowerPellet"
                                                     onclick="">5</button>
                                                 <button type="button" id="p15" class="setPowerPellet"
                                                     onclick="">15</button>
                                                 <button type="button" id="p25" class="setPowerPellet"
-                                                    onclick="">25</button>
+                                                    onclick="">25</button> -->
+                                    <table>
+                                        <tr>
+                                            <td><label>5 points</label>
+                                                <select class="form-control" id="setp5">
+                                                    <option>red</option>
+                                                    <option>blue</option>
+                                                    <option>yellow</option>
+                                                </select></td>
+                                            <td><label>15 points</label>
+                                                <select class="form-control" id="setp15">
+                                                    <option>blue</option>
+                                                    <option>red</option>
+                                                    <option>yellow</option>
+                                                </select></td>
+                                            <td><label>25 points</label>
+                                                <select class="form-control" id="setp25">
+                                                    <option>yellow</option>
+                                                    <option>blue</option>
+                                                    <option>red</option>
+                                                </select></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div id="setGhosts" class="setSettings">
+                                    <!-- <div style="float: left; margin-right: 10px;">
+                                        <p>Know the ghosts:</p>
+                                        <td><button id="ghostBlinky" class="ghostbutton"></button></td>
+                                        <td><button id="ghostClyde" class="ghostbutton"></td>
+                                        <td><button id="ghostInky" class="ghostbutton"></td>
+                                        <td><button id="ghostPinky" class="ghostbutton"></td>
+                                    </div> -->
+                                    <div style="width:100%;">
+                                        <span>set the number of ghosts:</span>
+                                        <input type="number" id="setGhostNumber" min="1" max="4" value="4" onchange=""
+                                            style="width: 70px;">
+                                    </div>
+                                </div>
 
-                                            </div>
-
-                                        </td>
-                                    </tr>
-                                </table>
-
-
-
-                                <table>
-                                    <tr>
-                                        <td><button type="button" id="ghostBlinky" class="ghostbutton"
-                                                onclick="setGhost('ghostBlinky')"></button></td>
-                                        <td><input type="button" id="ghostClyde" class="ghostbutton"
-                                                onclick="setGhost('ghostClyde')"></td>
-                                        <td><input type="button" id="ghostInky" class="ghostbutton"
-                                                onclick="setGhost('ghostInky')"></td>
-                                        <td><input type="button" id="ghostPinky" class="ghostbutton"
-                                                onclick="setGhost('ghostPinky')"></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="ghostname">Blinky</td>
-                                        <td class="ghostname">Clyde</td>
-                                        <td class="ghostname">Inky</td>
-                                        <td class="ghostname">Pinky</td>
-                                    </tr>
-                                </table>
-                                <button type="button" class="btn btn-primary" id="btn_setRandom"
-                                    onclick="">Random</button>
+                                <div>
+                                    <button type="button" class="btn btn-primary" id="btn_setRandom"
+                                        onclick="btnRandom()">Random</button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -429,33 +442,42 @@
             <table>
                 <td>
                     <div class="box1">
-                        <table>
-                            <tr>
-                                <div id="name">
-                                    <label for="lblName">Pacman Name:</label>
-                                    <input id="lblName" type="button" class="gameInfo"/>
-                                </div>
-                            </tr>
-                            <tr>
-                                <div id="score">
-                                    <label for="lblScore">SCORE:</label>
-                                    <input id="lblScore" type="button" class="gameInfo" />
-                                </div>
-                            </tr>
-                            <tr>
-                                <div id="lives">
-                                    <label for="lblLives">LIVES:</label>
-                                    <input id="lblLives" type="button" class="gameInfo" />
-                                </div>
-                            </tr>
-                            <tr>
-                                <div id="time">
-                                    <label for="lblTime">TIME:</label>
-                                    <input id="lblTime" type="button" class="gameInfo"/>
-                                </div>
-                            </tr>
-                        </table>
+                        <div class="gameStatus">
+                            <input id="lblName" type="button" style="width: 100%;">
+                            <input id="lblLives" type="button" class="gameInfo">
+                            <div class=lives>
+                                <table>
+                                    <tr>
+                                        <td><img src="images/paclive.png" class="img_paclive" id="live1"></td>
+                                        <td><img src="images/paclive.png" class="img_paclive" id="live2"></td>
+                                        <td><img src="images/paclive.png" class="img_paclive" id="live3"></td>
+                                        <td><img src="images/paclive.png" class="img_paclive" id="live4"></td>
+                                        <td><img src="images/paclive.png" class="img_paclive" id="live5"></td>
+
+                                    </tr>
+                                </table>
+                            </div>
+                            <!-- <img src="images/paclive.png" class="img_paclive" id="live1">
+                                        <img src="images/paclive.png" class="img_paclive" id="live2">
+                                        <img src="images/paclive.png" class="img_paclive" id="live3">
+                                        <img src="images/paclive.png" class="img_paclive" id="live4">
+                                        <img src="images/paclive.png" class="img_paclive" id="live5"> -->
+                        </div>
                     </div>
+
+
+                    <div class="gameStatus">
+                        <p>SCORE:</p>
+                        <input id="lblScore" type="button" class="gameInfo" />
+                    </div>
+
+
+                    <div class="gameStatus">
+                        <p>TIME:</p>
+                        <input id="lblTime" type="button" class="gameInfo" />
+                    </div>
+
+
                 </td>
                 <td>
                     <div id="game">

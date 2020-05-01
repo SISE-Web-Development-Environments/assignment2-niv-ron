@@ -1,3 +1,4 @@
+var chosenMonsters = [];
 var timmer = 60;
 var keys = {
     isCorrect: true,
@@ -107,7 +108,7 @@ function setTime(time) {
         this.timmer = time;
 }
 
-function showSettings(){
+function showSettings() {
     document.getElementById("showkeyleft").style.backgroundImage = "url('./images/keys/" + keys.left + ".png')";
     document.getElementById("showkeyright").style.backgroundImage = "url('./images/keys/" + keys.right + ".png')";
     document.getElementById("showkeyup").style.backgroundImage = "url('./images/keys/" + keys.up + ".png')";
@@ -116,3 +117,39 @@ function showSettings(){
     lblName.value = user.username;
     // +" ("+user.fname+ " "+user.lname+")";
 }
+
+function updateLifeCounter() {
+    $('#live' + lives).css('display', 'none');
+    this.lives--;
+}
+
+function setBalls() {
+
+}
+
+function btnRandom() {
+    // set random time:
+    setTimmer.value = Math.floor(Math.random() * 120) + 60;
+
+    // set random balls:
+    let colors = ['blue', 'yellow', 'red'];
+    let p5 = colors[Math.floor(Math.random() * 3)];
+    let p15 = colors[Math.floor(Math.random() * 3)];
+
+    while (p5 == p15) {
+        p15 = colors[Math.floor(Math.random() * 3)];
+    }
+
+    let p25;
+    for (var i = 0; i < colors.length; i++) {
+        if (colors[i] != p5 && colors[i] != p15)
+            p25 = colors[i];
+    }
+    setp5.value = p5;
+    setp15.value = p15;
+    setp25.value = p25;
+
+    // set random ghosts number:
+    setGhostNumber.value = 1 + (Math.floor(Math.random() * 4));
+}
+

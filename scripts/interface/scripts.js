@@ -8,6 +8,7 @@ $(document).ready(function () {
 
     //SHOW: menu, welcome
     showMenu();
+    // show('settings');
     // hideContent();
 
     //STORAGE INITIALIZATION:
