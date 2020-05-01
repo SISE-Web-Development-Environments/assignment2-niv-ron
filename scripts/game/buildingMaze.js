@@ -41,7 +41,7 @@ function setWalls() {
 			setWall(7, col);
 	}
 	for (var col = 0; col < 18; col++) {
-		if (col == 0 || col == 1 || col == 3 || col == 4 || col == 5 || col == 6 || col == 7 || col == 10 || col == 11 || col == 12 || col == 3 || col == 14 || col == 16 || col == 17)
+		if (col == 0 || col == 1 || col == 3 || col == 4 || col == 5 || col == 6 || col == 7 || col == 10 || col == 11 || col == 12 || col == 13 || col == 14 || col == 16 || col == 17)
 			setWall(8, col);
 	}
 	for (var col = 0; col < 18; col++) {
