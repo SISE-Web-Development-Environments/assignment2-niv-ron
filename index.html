@@ -381,7 +381,7 @@
                     Game</button>
                 <button type="button" class="btn btn-primary" id="btn_returngame" onclick="returnToGame()">Return To The
                     Game</button>
-                    
+
             </div>
             <!-- SETTINGS -->
 
@@ -426,41 +426,70 @@
         <!-- GAME BOARD -->
         <div id="game_grid" class="game">
             <audio id="gametheme" src="./audio/theme2.mp3"></audio>
-            <div class="box-left">
-                <table>
-                    <tr>
-                        <div id="name">
-                            <label for="lblName">Pacman Name:</label>
-                            <input id="lblName" type="text" />
-                        </div>
-                    </tr>
-                    <tr>
-                        <div id="score">
-                            <label for="lblScore">SCORE:</label>
-                            <input id="lblScore" type="text" />
-                        </div>
-                    </tr>
-                    <tr>
-                        <div id="lives">
-                            <label for="lblLives">LIVES:</label>
-                            <input id="lblLives" type="text" />
-                        </div>
-                    </tr>
-                    <tr>
-                        <div id="time">
-                            <label for="lblTime">TIME:</label>
-                            <input id="lblTime" type="text" />
-                        </div>
-                    </tr>
-                </table>
-            </div>
+            <table>
+                <td>
+                    <div class="box1">
+                        <table>
+                            <tr>
+                                <div id="name">
+                                    <label for="lblName">Pacman Name:</label>
+                                    <input id="lblName" type="button" class="gameInfo"/>
+                                </div>
+                            </tr>
+                            <tr>
+                                <div id="score">
+                                    <label for="lblScore">SCORE:</label>
+                                    <input id="lblScore" type="button" class="gameInfo" />
+                                </div>
+                            </tr>
+                            <tr>
+                                <div id="lives">
+                                    <label for="lblLives">LIVES:</label>
+                                    <input id="lblLives" type="button" class="gameInfo" />
+                                </div>
+                            </tr>
+                            <tr>
+                                <div id="time">
+                                    <label for="lblTime">TIME:</label>
+                                    <input id="lblTime" type="button" class="gameInfo"/>
+                                </div>
+                            </tr>
+                        </table>
+                    </div>
+                </td>
+                <td>
+                    <div id="game">
+                        <canvas id="canvas" width="720" height="520"></canvas>
+                        <!-- <canvas class="mycanvas" id="canvas" height="780" width="1080"></canvas> -->
+                    </div>
+                </td>
+                <td>
+                    <div class="box1">
 
-            <div id="game">
-                <canvas id="canvas" width="720" height="520"></canvas>
-                <!-- <canvas class="mycanvas" id="canvas" height="780" width="1080"></canvas> -->
-            </div>
+                        <table>
+                            <tr>
+                                <td></td>
+                                <td><input type="button" id="showkeyup" class="inputkey"></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><input type="button" id="showkeyleft" class="inputkey"></td>
+                                <td><input type="button" id="showkeydown" class="inputkey"></td>
+                                <td><input type="button" id="showkeyright" class="inputkey"></td>
+                            </tr>
+                        </table>
 
-            <div class="header-right">RIGHT</div>
+                    </div>
+
+                </td>
+
+
+            </table>
+
+
+
+
+
         </div>
         <!-- GAME BOARD -->
 

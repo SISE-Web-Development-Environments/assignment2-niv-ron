@@ -4,28 +4,39 @@
     background-size: 720px 520px;
     background-size: cover;
     background-repeat: no-repeat;
-    background-color: gainsboro;
+    /* background-color: gainsboro; */
     width: 720px;;
     height: 520px;
-    margin: auto; 
-     position: absolute;
+
+    /* margin: auto;  */
+     /* position: absolute;
     left: 0;
 	right: 0;
-    z-index: 0;
+    z-index: 0; */
 }
 
-.box-left {
+.box1 {
 	float: left;
-    width: 200px;
-    background: yellow;
+    width: 245px;
+    /* background: yellow; */
     position: static;
     z-index: 0;
+    margin: auto;
     /* display: none; */
+    background-color: whitesmoke;
+    -webkit-box-shadow: 10px 10px 87px 38px rgba(242,239,242,1);
+    -moz-box-shadow: 10px 10px 87px 38px rgba(242,239,242,1);
+    box-shadow: 10px 10px 87px 38px rgba(242,239,242,1);
+    border-radius: 10px;
+    
+}
+.box1 table{
+margin:auto;
 }
 
-.header-right {
+.box-right {
 	float: right;
-    width: 350px;
+    width: 255px;
     background: cyan;
     position: static;
     z-index: 0;
@@ -34,6 +45,15 @@
 }
 
 .gameInfo{
-    width: 50px;
-    height: 50px;
+    width: 150px;
+    height: 30px;
+
 }
+
+table{
+    margin: 0;
+}
+
+/* table, td{
+    border: red solid 2px;
+} */

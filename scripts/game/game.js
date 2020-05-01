@@ -34,6 +34,7 @@ const cols = 18;
 $(document).ready(function () {
 	ctx = canvas.getContext("2d");
 });
+
 function playTheme() {
 	document.getElementById('gametheme').play();
 }
@@ -56,9 +57,11 @@ function endGame() {
 // }
 
 
-function startNewGame() {
-	playTheme();
 
+function startNewGame() {
+	
+	playTheme();
+	showSettings();
 	gameIsOn = true;
 	// initialization fields for every time the use start a new game:
 	board = new Array();

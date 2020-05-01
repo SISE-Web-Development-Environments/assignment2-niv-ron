@@ -106,3 +106,13 @@ function setTime(time) {
     } else
         this.timmer = time;
 }
+
+function showSettings(){
+    document.getElementById("showkeyleft").style.backgroundImage = "url('./images/keys/" + keys.left + ".png')";
+    document.getElementById("showkeyright").style.backgroundImage = "url('./images/keys/" + keys.right + ".png')";
+    document.getElementById("showkeyup").style.backgroundImage = "url('./images/keys/" + keys.up + ".png')";
+    document.getElementById("showkeydown").style.backgroundImage = "url('./images/keys/" + keys.down + ".png')";
+
+    lblName.value = user.username;
+    // +" ("+user.fname+ " "+user.lname+")";
+}
