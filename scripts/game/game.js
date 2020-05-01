@@ -46,6 +46,7 @@ function stopTheme(){
 function endGame() {
 	stopTheme();
 	clearInterval(interval);
+	showMenu();
 }
 
 // function gameManager(){

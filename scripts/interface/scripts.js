@@ -52,7 +52,6 @@ function showMenu() {
     }
     if (gameIsOn){
         $('#btn_returngame').css('display', 'block');
-        
         $('#btn_startgame').html("New Game");
     }
     else
