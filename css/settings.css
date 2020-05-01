@@ -52,8 +52,6 @@
     text-align: center;
 }
 
-
-
 .setPowerPellet{
     width: 50px;
     height: 50px;
@@ -72,7 +70,6 @@
 #p15{
     background-image: url("../images/powerPellets/red.png");
 }
-
 
 #p25{
     background-image: url("../images/powerPellets/yellow.png");

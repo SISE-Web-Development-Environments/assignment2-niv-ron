@@ -27,9 +27,7 @@ html, body{
 
 .col {
     width: 100%;
-    /* min-height: 100px; */
     height: auto;
-    /* margin: 10px; */
     margin-left: 5px;
 }
 
@@ -66,8 +64,6 @@ html, body{
 
 .nav-link {
     color: black;
-    /* background-color: gainsboro; */
-    /* border-bottom: 1px #ebebeb solid; */
 }
 
 .top {
@@ -80,9 +76,7 @@ html, body{
 }
 
 .welcome_text {
-    /* border: solid gainsboro; */
     border-style: ridge;
     padding: 5px;
     margin-bottom: 10px;
-    /* font-size: 15px; */
 }

@@ -111,10 +111,6 @@ function isContainNumber(pass) {
 	return false;
 }
 
-$( function() {
-    $( "#register_bday" ).datepicker();
-  } );
+$(function () { $("#register_bday").datepicker(); });
 
-  $( function() {
-    $( "#profile_bday" ).datepicker();
-  } );
+$(function () { $("#profile_bday").datepicker(); });
