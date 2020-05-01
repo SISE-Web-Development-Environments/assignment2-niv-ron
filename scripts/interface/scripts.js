@@ -40,20 +40,24 @@ function showMenu() {
         $('#menu2').css('display', 'block');
         $('#btn_logoff').css('display', 'block');
         $('#welcome_msg').html('Welcome <b>' + user.fname + '!</b>');
-        $('#btn_startgame').css('display', 'block');
+        $('#welcome_btn_startgame').css('display', 'block');
         show('profile');
     } else {
         $('#menu1').css('display', 'block');
         $('#menu2').css('display', 'none');
         $('#btn_logoff').css('display', 'none');
         $('#welcome_msg').html('Welcome!');
-        $('#btn_startgame').css('display', 'none');
+        $('#welcome_btn_startgame').css('display', 'none');
         show('welcome');
     }
-    if (gameIsOn)
+    if (gameIsOn){
         $('#btn_returngame').css('display', 'block');
+        
+        $('#btn_startgame').html("New Game");
+    }
     else
         $('#btn_returngame').css('display', 'none');
+        
 }
 
 // Disable arrow key scrolling in users browser
