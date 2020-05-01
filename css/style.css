@@ -1,6 +1,13 @@
+html, body{
+    height: 100%;
+    margin: 0px;
+}
+
 .allSite {
-    width: 950px;
-    height: 628px;
+    /* width: 950px;
+    height: 628px; */
+    width: 90%;
+    height: 100%;
     margin: 0 auto;
     border: black solid;
     background-image: url('../images/backgrounds/background.jpg');
