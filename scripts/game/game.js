@@ -41,17 +41,11 @@ function stopTheme() {
 	document.getElementById('gametheme').pause();
 }
 
-function playEndTheme() {
-	document.getElementById('losttheme').play();
-
-}
 
 
 
 function endGame() {
-	playEndTheme();
 	stopTheme();
-	playEndTheme();
 	clearInterval(interval);
 	showMenu();
 }
@@ -246,7 +240,6 @@ function checkIfGhost() {
 				gameStatus = 1;
 			}
 			else {
-				playEndTheme();
 				gameIsOn = false;
 				resetKeys();
 				score -= 10;
