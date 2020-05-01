@@ -30,16 +30,33 @@ var lives;
 const rows = 13;
 const cols = 18;
 
+
 $(document).ready(function () {
 	ctx = canvas.getContext("2d");
 });
-
-function endGame(){
-	clearInterval(interval);
+function playTheme() {
+	document.getElementById('snare').play();
+}
+function stopTheme(){
+	document.getElementById('snare').pause();
 }
 
 
+
+function endGame() {
+	stopTheme();
+	clearInterval(interval);
+}
+
+// function gameManager(){
+// 	playTheme();
+// 	setTimeout(() => { startNewGame(); }, 2500);
+// }
+
+
 function startNewGame() {
+	playTheme();
+
 	gameIsOn = true;
 	// initialization fields for every time the use start a new game:
 	board = new Array();
