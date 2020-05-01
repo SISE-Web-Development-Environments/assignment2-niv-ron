@@ -40,16 +40,16 @@ function playTheme() {
 	document.getElementById('gametheme').volume = 0.2;
 }
 function stopTheme() {
-	document.getElementById('gametheme').pause();
+	document.getElementById('gametheme').stop();
 }
 
 
 
 
 function endGame() {
-	stopTheme();
-	clearInterval(interval);
 	showMenu();
+	clearInterval(interval);
+	setTimeout(stopTheme(), 500);
 }
 
 
@@ -244,7 +244,7 @@ function checkIfGhost() {
 				resetKeys();
 				score -= 10;
 				lives--;
-				alert("lost live");
+				// alert("lost live");
 				resetPositions();
 			}
 		}
@@ -356,18 +356,18 @@ function resetKeys() {
 
 function gameLostLives() {
 	gameIsOn = false;
-	setTimeout(function () { alert("LOSER!!!"); }, 100);
+	// setTimeout(function () { alert("LOSER!!!"); }, 100);
 	endGame();
 }
 
 function gameCompleted() {
 	gameIsOn = false;
-	setTimeout(function () { alert("Winner!!!"); }, 100);
+	// setTimeout(function () { alert("Winner!!!"); }, 100);
 	endGame();
 }
 
 function gameLostScore() {
-	setTimeout(function () { alert("You are better than " + score + " points!") }, 100);
+	// setTimeout(function () { alert("You are better than " + score + " points!") }, 100);
 	endGame();
 }
 
