@@ -1,25 +1,32 @@
 <!DOCTYPE html>
 
 <head>
+    <!-- MetaData -->
+    <META NAME="keywords" CONTENT="pacman, game, browser game, online game">
+    <META NAME="description" CONTENT="This WebSite is one of the assignments in Web Development Environments course of BGU UNIVERSITY - April 2020.
+        As part of practicing HTML5, CSS, JavaScript, jQuery, Gaming and HTML Canvas Drawing.
+        This Web site will help .">
+
     <title>PacMan - Browser Game</title>
     <link rel="icon" href="https://seeklogo.com/images/P/pac-man-retro-logo-731613766E-seeklogo.com.png"
         type="image/x-icon">
 
+    <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <link rel="stylesheet" type="text/css" href="css/game.css" />
     <link rel="stylesheet" type="text/css" href="css/register.css" />
     <link rel="stylesheet" type="text/css" href="css/settings.css" />
+    <link rel="stylesheet" type="text/css" href="css/game.css" />
     <link rel="stylesheet" type="text/css" href="css/footer.css" />
 
     <script src="scripts/jquery-3.4.1.slim.min.js"></script>
 
-    <script type="text/javascript" src="scripts/game/app.js"></script>
-
+    <!-- JS: Interface -->
     <script type="text/javascript" src="scripts/interface/storageManager.js"></script>
     <script type="text/javascript" src="scripts/interface/scripts.js"></script>
     <script type="text/javascript" src="scripts/interface/login.js"></script>
     <script type="text/javascript" src="scripts/interface/register.js"></script>
 
+    <!-- JS: Game -->
     <script type="text/javascript" src="scripts/game/drawings.js"></script>
     <script type="text/javascript" src="scripts/game/buildingMaze.js"></script>
     <script type="text/javascript" src="scripts/game/game.js"></script>
@@ -29,16 +36,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <!-- Bootstrap JS -->
-    <!-- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script> -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
-
 
     <!-- DATE PICKER -->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -123,6 +123,7 @@
 
 
             <!-- PROFILE -->
+            <!-- username -->
             <div id="profile" class="col">
                 <fieldset disabled>
                     <div class="row">
@@ -134,7 +135,7 @@
                         </div>
                     </div>
                 </fieldset>
-
+                <!-- email -->
                 <fieldset disabled>
                     <div class="row">
                         <div class="col-25">
@@ -145,7 +146,7 @@
                         </div>
                     </div>
                 </fieldset>
-
+                <!-- fname -->
                 <fieldset disabled>
                     <div class="row">
                         <div class="col-25">
@@ -156,7 +157,7 @@
                         </div>
                     </div>
                 </fieldset>
-
+                <!-- lname -->
                 <fieldset disabled>
                     <div class="row">
                         <div class="col-25">
@@ -167,7 +168,7 @@
                         </div>
                     </div>
                 </fieldset>
-
+                <!-- bdate -->
                 <fieldset disabled>
                     <div class="row">
                         <div class="col-25">
@@ -178,7 +179,7 @@
                         </div>
                     </div>
                 </fieldset>
-
+                <!-- update password -->
                 <div class="row">
                     <div class="col-25">
                         <label>New Password</label>
@@ -206,7 +207,7 @@
                             <input type="text" id="register_username">
                         </div>
                     </div>
-
+                    <!-- password -->
                     <div class="row">
                         <div class="col-25">
                             <label>Password</label>
@@ -215,7 +216,7 @@
                             <input type="password" id="register_password">
                         </div>
                     </div>
-
+                    <!-- fname -->
                     <div class="row">
                         <div class="col-25">
                             <label>First Name</label>
@@ -224,7 +225,7 @@
                             <input type="text" id="register_fname">
                         </div>
                     </div>
-
+                    <!-- lname -->
                     <div class="row">
                         <div class="col-25">
                             <label>Last Name</label>
@@ -233,7 +234,7 @@
                             <input type="text" id="register_lname">
                         </div>
                     </div>
-
+                    <!-- email -->
                     <div class="row">
                         <div class="col-25">
                             <label>Email</label>
@@ -242,7 +243,7 @@
                             <input type="email" id="register_email">
                         </div>
                     </div>
-
+                    <!-- bdate -->
                     <div class="row">
                         <div class="col-25">
                             <label>Birth Date</label>
@@ -251,7 +252,7 @@
                             <input type="text" id="register_bday">
                         </div>
                     </div>
-
+                    <!-- registerBTN -->
                     <div class="row">
                         <button type="button" class="btn btn-primary btn_regist" onclick="btn_regist()">create new
                             Pacman</button>
@@ -263,6 +264,7 @@
 
             <!-- LOGIN -->
             <div id="login" class="col">
+                <!-- username -->
                 <div class="row">
                     <div class="col-25">
                         <label>User Name</label>
@@ -271,7 +273,7 @@
                         <input type="text" id="login_username">
                     </div>
                 </div>
-
+                <!-- password -->
                 <div class="row">
                     <div class="col-25">
                         <label>Password</label>
@@ -298,13 +300,13 @@
                         <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
                             data-parent="#accordionExample">
                             <div class="card-body">
-
+                                <!-- set max time -->
                                 <div id="setTime" class="setSettings">
                                     <span style="margin: 10px;">SET TIME:</span>
                                     <input type="number" id="setTimmer" value="60" onchange="setTime(this);"
                                         style="width: 70px;">
                                 </div>
-
+                                <!-- set power pellets colors -->
                                 <div id="setBalls" class="setSettings">
                                     <!-- <button type="button" id="p5" class="setPowerPellet"
                                                     onclick="">5</button>
@@ -320,7 +322,6 @@
                                                     <option>blue</option>
                                                     <option>yellow</option>
                                                 </select></td>
-
                                             <td><label>15 points</label>
                                                 <select class="form-control" id="setp15">
                                                     <option>blue</option>
@@ -341,6 +342,7 @@
                                         </tr> -->
                                     </table>
                                 </div>
+                                <!-- pick the ghosts -->
                                 <div id="setGhosts" class="setSettings">
                                     <!-- <div style="float: left; margin-right: 10px;">
                                         <p>Know the ghosts:</p>
@@ -355,7 +357,7 @@
                                             style="width: 70px;">
                                     </div>
                                 </div>
-
+                                <!-- random setting BTN -->
                                 <div>
                                     <button type="button" class="btn btn-primary" id="btn_setRandom"
                                         onclick="btnRandom()">Random</button>
@@ -365,6 +367,7 @@
                     </div>
 
                     <div class="card">
+                        <!-- set playing keys -->
                         <div class="card-header" id="headingTwo" style="height: auto; padding: 0;">
                             <button class="btn collapsed" type="button" data-toggle="collapse"
                                 data-target="#collapseTwo">
@@ -414,12 +417,11 @@
                         <h5 class="modal-title" id="exampleModalLabel">About</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"
                             onclick="showContent()">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+                            <span aria-hidden="true">&times;</span></button>
                     </div>
                     <div class="modal-body">
                         <p>This game created by Ron Israel and Niv Goldshlager.</p>
-                        <p>We used jQuery plugins for validation on register and login forms and date picker.</p>
+                        <p>We used jQuery plugins for validation and date picker on register and login forms.</p>
                         <img src="./images/gifs/1.gif" style="width: 300px; border-radius: 14px;">
                     </div>
                 </div>

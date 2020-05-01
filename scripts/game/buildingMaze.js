@@ -217,7 +217,7 @@ function setGhosts(){
 
 function setCherry(){
 	cherryImg = new Image();
-	cherryImg.src = "./images/cherry/1.png";
+	cherryImg.src = "./images/cherry/cherry.png";
 
 	var indexi;
 	var indexj;
