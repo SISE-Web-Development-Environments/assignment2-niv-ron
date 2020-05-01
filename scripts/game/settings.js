@@ -30,24 +30,24 @@ $(document).ready(function () {
 });
 
 function btn_startNewGame() {
-	$('.content').css('display', 'none');
-	$('#game_grid').css('display', 'block');
-	startNewGame();
-	$(document).on(
-		'keydown',
-		function (event) {
-			if (event.key == "Escape") {
-				showMenu();
-				show('settings')
-			}
-		});
+    $('.content').css('display', 'none');
+    $('#game_grid').css('display', 'block');
+    startNewGame();
+    $(document).on(
+        'keydown',
+        function (event) {
+            if (event.key == "Escape") {
+                showMenu();
+                show('settings')
+            }
+        });
 }
 
 function returnToGame() {
-	if (gameIsOn) {
-		$('.content').css('display', 'none');
-		$('#game_grid').css('display', 'block');
-	}
+    if (gameIsOn) {
+        $('.content').css('display', 'none');
+        $('#game_grid').css('display', 'block');
+    }
 }
 
 function btn_saveKeys() {

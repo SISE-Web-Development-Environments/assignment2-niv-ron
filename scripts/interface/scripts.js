@@ -9,7 +9,7 @@ $(document).ready(function () {
     //SHOW: menu, welcome
     showMenu();
     // hideContent();
-    
+
     //STORAGE INITIALIZATION:
     sessionStorage.clear();
     localStorage.clear();
@@ -50,6 +50,10 @@ function showMenu() {
         $('#btn_startgame').css('display', 'none');
         show('welcome');
     }
+    if (gameIsOn)
+        $('#btn_returngame').css('display', 'block');
+    else
+        $('#btn_returngame').css('display', 'none');
 }
 
 // Disable arrow key scrolling in users browser

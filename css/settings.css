@@ -79,3 +79,14 @@
 #p25{
     background-image: url("../images/powerPellets/yellow.png");
 }
+
+#btn_returngame{
+    float: left;
+    display: none;
+    margin-left: 5px;
+}
+
+#btn_startgame{
+    float: left;
+    
+}
