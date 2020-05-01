@@ -15,61 +15,66 @@
     z-index: 0; */
 }
 
-.box1 {
-	float: left;
+.box {
     width: 245px;
-    /* background: yellow; */
-    position: static;
-    z-index: 0;
     margin: auto;
-    /* display: none; */
-    background-color: whitesmoke;
     -webkit-box-shadow: 10px 10px 87px 38px rgba(242,239,242,1);
     -moz-box-shadow: 10px 10px 87px 38px rgba(242,239,242,1);
     box-shadow: 10px 10px 87px 38px rgba(242,239,242,1);
     border-radius: 10px;
-    
-}
-.box1 table{
-margin:auto;
+    color: white;
 }
 
-.box-right {
-	float: right;
-    width: 255px;
-    background: cyan;
-    position: static;
-    z-index: 0;
-    left: 0;
-	right: 0;
-}
 
 .gameInfo{
-    width: 150px;
+    width: 80px;
     height: 30px;
-
 }
 
-table{
-    margin: 0;
+table, td{
+    /* border: red solid 2px; */
+    margin: auto;
+    vertical-align:top;
 }
-
-/* table, td{
-    border: red solid 2px;
-} */
 
 .img_paclive{
-    width: 40px;
+    width: 35px;
+    margin-right: 4px;
 }
 
 .gameStatus{
-    width: 230px;
+    background-color: whitesmoke;
+    font-weight: bolder;
+    width: 100px;
     border: solid 2px gray;
     min-height: 80px;
     margin: auto;
+    padding-top: 10px;
     margin-bottom: 20px;
-    margin-top: 10px;
-    padding-top:10px;
-    background-color: white;
+    text-align: center;
+
+
+    /* background-color: white; */
 }
 
+#gamelogo{
+    display: block;
+    width: 250px;
+    margin: auto;
+
+}
+
+.playerStatus{
+    width: 200px;
+    margin: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+.showSettings{
+    width: 200px;
+    border: black solid;
+    margin:auto;
+    color: white;
+    font-weight: bolder;
+}
