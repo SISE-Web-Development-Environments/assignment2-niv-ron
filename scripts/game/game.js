@@ -46,7 +46,7 @@ function playTheme() {
 	document.getElementById('gametheme').volume = 0.2;
 }
 function stopTheme() {
-	document.getElementById('gametheme').stop();
+	document.getElementById('gametheme').pause();
 }
 
 

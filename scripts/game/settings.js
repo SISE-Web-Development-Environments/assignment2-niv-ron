@@ -193,11 +193,12 @@ function btnRandom() {
     setp5.value = p5;
     setp15.value = p15;
     setp25.value = p25;
+    setBalls();
 
-    // set random ghosts number:
-    let x = 1 + (Math.floor(Math.random() * 4));
-    setGhostNumber.value = x;
-    num_of_monsters = x;
+   // set random ghosts number:
+   let x = 1 + (Math.floor(Math.random() * 4));
+   setGhostNumber.value = x;
+   num_of_monsters = x;
 }
 
 function setNumOfGhosts(num) {
