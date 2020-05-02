@@ -172,7 +172,7 @@ function UpdatePosition() {
 	pacmanMovement();
 
 	// GHOSTS MOVEMENT
-	//ghostMovement();
+	ghostMovement();
 
 	// CHERRY MOVEMENT
 	cherryMovement();
