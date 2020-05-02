@@ -1,0 +1,77 @@
+#game{
+    background-image: url("../images/mazes_grids/dark_blue.png");
+    background-size: 720px 520px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 720px;;
+    height: 520px;
+
+    -webkit-box-shadow: 10px 10px 87px 38px rgba(242,239,242,1);
+    -moz-box-shadow: 10px 10px 87px 38px rgba(242,239,242,1);
+    box-shadow: 10px 10px 87px 38px rgba(242,239,242,1);
+    border-radius: 10px;
+    -webkit-box-shadow: 10px 10px 87px 38px rgba(242,239,242,1);
+    -moz-box-shadow: 10px 10px 87px 38px rgba(242,239,242,1);
+    box-shadow: 10px 10px 87px 38px rgba(242,239,242,1);
+}
+
+.box {
+    width: 245px;
+    margin: auto;
+    -webkit-box-shadow: 10px 10px 87px 38px rgba(242,239,242,1);
+    -moz-box-shadow: 10px 10px 87px 38px rgba(242,239,242,1);
+    box-shadow: 10px 10px 87px 38px rgba(242,239,242,1);
+    border-radius: 10px;
+    color: white;
+}
+
+
+.gameInfo{
+    width: 80px;
+    height: 30px;
+}
+
+table, td{
+    /* border: red solid 2px; */
+    margin: auto;
+    vertical-align:top;
+}
+
+.img_paclive{
+    width: 35px;
+    margin-right: 4px;
+}
+
+.gameStatus{
+    background-color: whitesmoke;
+    font-weight: bolder;
+    width: 100px;
+    /* border: solid 2px gray; */
+    min-height: 80px;
+    margin: auto;
+    padding-top: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#gamelogo{
+    display: block;
+    width: 250px;
+    margin: auto;
+
+}
+
+.playerStatus{
+    width: 200px;
+    margin: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+.showSettings{
+    width: 200px;
+    /* border: black solid; */
+    margin:auto;
+    color: white;
+    font-weight: bolder;
+}

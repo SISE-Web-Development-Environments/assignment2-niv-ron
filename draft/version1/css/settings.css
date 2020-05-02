@@ -1,0 +1,81 @@
+.btn_set{
+    height: 5px;
+}
+
+
+.inputkey {
+    height: 60px;
+    width: 60px;
+    background-size: cover;
+}
+
+#setkeyleft{
+    background-image: url("../images/keys/ArrowLeft.png");
+}
+#setkeyright{
+    background-image: url("../images/keys/ArrowRight.png");
+}
+#setkeyup{
+    background-image: url("../images/keys/ArrowUp.png");
+}
+#setkeydown{
+    background-image: url("../images/keys/ArrowDown.png");
+}
+
+.ghostbutton {
+    width: 70px;
+    height: 70px;
+    background-size: cover;
+    border-radius: 8px;
+    background-color: white;
+    border: white;
+  }
+
+
+#ghostBlinky{
+    background-image: url("../images/ghosts/blinky.png");
+}
+
+#ghostClyde{
+    background-image: url("../images/ghosts/clyde.png");
+
+}
+#ghostInky{
+    background-image: url("../images/ghosts/inky.png");
+}
+#ghostPinky{
+    background-image: url("../images/ghosts/pinky.png");
+}
+
+.ghostname{
+    font-weight: bold;
+    text-align: center;
+}
+
+#setTime{
+    width: 70px;
+}
+
+.setPowerPellet{
+    width: 50px;
+    height: 50px;
+    /* background-image: url("../images/powerPellets/blue.png"); */
+    background-size: cover;
+    background-color: white;
+    border: 0ch;
+    color: white;
+    font: bold;
+}
+
+#p5{
+    background-image: url("../images/powerPellets/blue.png");
+}
+
+#p15{
+    background-image: url("../images/powerPellets/red.png");
+}
+
+
+#p25{
+    background-image: url("../images/powerPellets/yellow.png");
+}
