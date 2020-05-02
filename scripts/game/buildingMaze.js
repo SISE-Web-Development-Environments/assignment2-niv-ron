@@ -78,19 +78,19 @@ function isEmpty(row, col) {
 
 function isBesideMonster(row, col){
 	// check left up
-	if (getManhattanDistance(row, 1, col, 1) <= 4){
+	if (getManhattanDistance(row, col, 1, 1) <= 4){
 		return true;
 	}
 	// check left down
-	if (getManhattanDistance(row, 11, col, 1) <= 4){
+	if (getManhattanDistance(row, col, 11, 1) <= 4){
 		return true;
 	}
 	// check right up
-	if (getManhattanDistance(row, 1, col, 16) <= 4){
+	if (getManhattanDistance(row, col, 1, 16) <= 4){
 		return true;
 	}
 	// check right down
-	if (getManhattanDistance(row, 11, col, 16) <= 4){
+	if (getManhattanDistance(row, col, 11, 16) <= 4){
 		return true;
 	}
 	return false;
@@ -216,6 +216,7 @@ function setGhosts(){
 }
 
 function setCherry(){
+	cherry = new Object();
 	cherryImg = new Image();
 	cherryImg.src = "./images/cherry/1.png";
 
@@ -246,4 +247,12 @@ function setMedication(){
 
 	board[10][5] = 1;
 	board[1][9] = 1;
+}
+
+function setClock(){
+	clockImg = new Image();
+	clockImg.src = "./images/clock/1.png";
+
+	board[16][9] = 2;
+	board[7][5] = 2;
 }

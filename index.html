@@ -302,7 +302,7 @@
 
                                 <div id="setTime" class="setSettings">
                                     <span style="margin: 10px;">SET TIME:</span>
-                                    <input type="number" id="setTimmer" value="60" onchange="setTime(this);"
+                                    <input type="number" id="setTimmer" value="60" onchange="setTime($('#setTimmer').val());"
                                         style="width: 70px;">
                                 </div>
 
@@ -316,19 +316,19 @@
                                     <table>
                                         <tr>
                                             <td><label>5 points</label>
-                                                <select class="form-control" id="setp5">
+                                                <select class="form-control" id="setp5" onchange="setBalls()">
                                                     <option>red</option>
                                                     <option>blue</option>
                                                     <option>yellow</option>
                                                 </select></td>
                                             <td><label>15 points</label>
-                                                <select class="form-control" id="setp15">
+                                                <select class="form-control" id="setp15" onchange="setBalls()">
                                                     <option>blue</option>
                                                     <option>red</option>
                                                     <option>yellow</option>
                                                 </select></td>
                                             <td><label>25 points</label>
-                                                <select class="form-control" id="setp25">
+                                                <select class="form-control" id="setp25" onchange="setBalls()">
                                                     <option>yellow</option>
                                                     <option>blue</option>
                                                     <option>red</option>
@@ -346,7 +346,7 @@
                                     </div> -->
                                     <div style="width:100%;">
                                         <span>set the number of ghosts:</span>
-                                        <input type="number" id="setGhostNumber" min="1" max="4" value="4" onchange=""
+                                        <input type="number" id="setGhostNumber" min="1" max="4" value="4" onchange="setNumOfGhosts($('#setGhostNumber').val());"
                                             style="width: 70px;">
                                     </div>
                                 </div>
@@ -443,17 +443,17 @@
                 <td>
                     <div class="box1">
                         <div class="gameStatus">
+                            <p>PLAYER NAME:</p>
                             <input id="lblName" type="button" style="width: 100%;">
-                            <input id="lblLives" type="button" class="gameInfo">
+                            <p>LIVES:</p>
                             <div class=lives>
-                                <table>
+                                <table id="livesTable">
                                     <tr>
                                         <td><img src="images/paclive.png" class="img_paclive" id="live1"></td>
                                         <td><img src="images/paclive.png" class="img_paclive" id="live2"></td>
                                         <td><img src="images/paclive.png" class="img_paclive" id="live3"></td>
                                         <td><img src="images/paclive.png" class="img_paclive" id="live4"></td>
                                         <td><img src="images/paclive.png" class="img_paclive" id="live5"></td>
-
                                     </tr>
                                 </table>
                             </div>

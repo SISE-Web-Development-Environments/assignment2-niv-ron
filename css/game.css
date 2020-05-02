@@ -8,6 +8,7 @@
     width: 720px;;
     height: 520px;
 
+    margin-top: 10%;
     /* margin: auto;  */
      /* position: absolute;
     left: 0;
@@ -73,3 +74,6 @@ table{
     background-color: white;
 }
 
+#livesTable{
+    border: solid 2px black;
+}
