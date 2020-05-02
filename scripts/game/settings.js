@@ -139,7 +139,9 @@ function showSettings() {
 
     //max time
     lblMaxTime.value = timmer;
+
     //power
+    lblBalls.value = food_remain;
     document.getElementById("showp5").style.backgroundImage = "url('./images/powerPellets/" + p5Color + ".png')";
     document.getElementById("showp15").style.backgroundImage = "url('./images/powerPellets/" + p15Color + ".png')";
     document.getElementById("showp25").style.backgroundImage = "url('./images/powerPellets/" + p25Color + ".png')";
@@ -180,11 +182,9 @@ function btnRandom() {
     let colors = ['blue', 'yellow', 'red'];
     let p5 = colors[Math.floor(Math.random() * 3)];
     let p15 = colors[Math.floor(Math.random() * 3)];
-
     while (p5 == p15) {
         p15 = colors[Math.floor(Math.random() * 3)];
     }
-
     let p25;
     for (var i = 0; i < colors.length; i++) {
         if (colors[i] != p5 && colors[i] != p15)
@@ -194,6 +194,9 @@ function btnRandom() {
     setp15.value = p15;
     setp25.value = p25;
     setBalls();
+    let z = Math.floor(Math.random() * 41) + 50;
+    setBallsNumber.value = z;
+    food_remain = z;
 
    // set random ghosts number:
    let x = 1 + (Math.floor(Math.random() * 4));
@@ -208,6 +211,16 @@ function setNumOfGhosts(num) {
     }
     else {
         num_of_monsters = num;
+    }
+}
+
+function setNumOfBalls(num){
+    if (num > 90 || num < 50) {
+        $('#setBallsNumber').val(1);
+        alert("The minimum number of Power Pellets is 1 and the maximum is 4");
+    }
+    else {
+        food_remain = num;
     }
 }
 

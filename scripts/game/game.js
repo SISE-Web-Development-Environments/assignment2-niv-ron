@@ -56,7 +56,7 @@ function endGame() {
 	showMenu();
 	clearInterval(interval);
 	clearInterval(timmer_interval);
-	setTimeout(stopTheme(), 500);
+	stopTheme();
 }
 
 
@@ -70,7 +70,8 @@ function startNewGame() {
 	board = new Array();
 	score = 0;
 	pac_color = "yellow";
-	food_remain = 50;
+	// food_remain = 50;
+	food_remain = lblBalls.value;
 	lives = 5;
 	start_time = new Date();
 	gameStatus = 0;
