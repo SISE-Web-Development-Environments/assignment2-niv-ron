@@ -1,8 +1,7 @@
 function draw() {
 	canvas.width = canvas.width; //clean board
 	lblScore.value = score;
-	lblTime.value = timmer;
-	lblLives.value = lives;
+	lblTime.value = time_left;
 
 
 	for (var i = 0; i < cols; i++) {
@@ -11,18 +10,22 @@ function draw() {
 			if (board[i][j] == 1){
 				drawMedication(i, j);
 			}
+			// DRAW CLOCK
+			else if (board[i][j] == 2){
+				drawClock(i,j);
+			}
 			// FOOD
 			if (board[i][j] == 5) {
 				// drawFoodByImg(i, j, 'yellow', 25);
-				drawFood(j, i, 5, 'red', '5', 8);
+				drawFood(j, i, 7, p5Color, '5', 11);
 			}
 			else if (board[i][j] == 15) {
 				// drawFoodByImg(i, j, 'yellow', 25);
-				drawFood(j, i, 10, 'blue', '15', 14);
+				drawFood(j, i, 10, p15Color, '15', 14);
 			}
 			else if (board[i][j] == 25) {
 				// drawFoodByImg(i, j, 'yellow', 25);
-				drawFood(j, i, 15, 'yellow', '25', 20);
+				drawFood(j, i, 12, p25Color, '25', 16);
 			}
 		}
 	}
@@ -163,13 +166,13 @@ function drawFood(row, col, size, color, points, font_size) {
 	ctx.font = font_size+"px Comic Sans MS";
 	ctx.fillStyle = "black";
 	if (points == 5){
-		ctx.fillText(points, center.x - 2, center.y + 3);
+		ctx.fillText(points, center.x - 3.5, center.y + 3.5);
 	}
 	else if(points == 15){
-		ctx.fillText(points, center.x - 8, center.y + 6);
+		ctx.fillText(points, center.x - 7, center.y + 6);
 	}
 	else if (points == 25){
-		ctx.fillText(points, center.x - 11, center.y + 7);
+		ctx.fillText(points, center.x - 10, center.y + 6);
 	}
 }
 
@@ -276,4 +279,10 @@ function drawMedication(i, j){
 	i_pixel = i*40;
 	j_pixel = j*40;
 	ctx.drawImage(medicationImg, i_pixel+10, j_pixel+5, 20, 30);
+}
+
+function drawClock(i, j){
+	i_pixel = i*40;
+	j_pixel = j*40;
+	ctx.drawImage(clockImg, i_pixel, j_pixel, 40, 40);
 }

@@ -9,11 +9,15 @@ var start_time;
 var time_elapsed;
 var interval;
 var gameStatus;
+var time_left;
+
+// pacman movement
+var lastPressed;
 
 
 // ghosts
 var monster_turn = 125;
-var num_of_monsters = 3;
+var num_of_monsters = 4;
 var monsters = new Array();
 
 // cherry
@@ -22,8 +26,10 @@ var cherry_turn = 400;
 var cherryImg;
 
 // medication
-var medication = new Object();
 var medicationImg;
+
+// clock
+var clockImg;
 
 var food_remain;
 var lives;
@@ -45,13 +51,11 @@ function stopTheme() {
 
 
 
-
 function endGame() {
 	showMenu();
 	clearInterval(interval);
 	setTimeout(stopTheme(), 500);
 }
-
 
 
 
@@ -68,15 +72,25 @@ function startNewGame() {
 	lives = 5;
 	start_time = new Date();
 	gameStatus = 0;
+	time_left = timmer;
+	
 
 	// pacman
 	shape.speed = 0.5;
+	shape.move = false;
 	pacman_mouth_turn = 40;
+
+	// ghosts
+	monster_turn = 125;
+
+	// cherry
+	cherry_turn = 400;
 
 	//building a new maze:
 	createEmptyMaze();
 	setWalls();
 	setMedication();
+	setClock();
 	putFoodRandomaly();
 	setRandomPacmanPosition();
 	setGhosts();
@@ -87,6 +101,7 @@ function startNewGame() {
 		"keydown",
 		function (e) {
 			keysDown[e.keyCode] = true;
+			lastPressed = e.keyCode;
 		},
 		false
 	);
@@ -101,7 +116,22 @@ function startNewGame() {
 
 
 	interval = setInterval(UpdatePosition, 1);
-	setInterval(function () { timmer-- }, 1000);
+	timmer_interval = setInterval(function () { time_left-- }, 1000);
+}
+
+function getLastPressed(){
+	if (lastPressed == keys.up){
+		return 1;
+	}
+	if (lastPressed == keys.down){
+		return 2;
+	}
+	if (lastPressed == keys.left){
+		return 3;
+	}
+	if (lastPressed == keys.right){
+		return 4;
+	}
 }
 
 function GetKeyPressed() {
@@ -155,13 +185,15 @@ function UpdatePosition() {
 
 	checkIfMedication();
 
+	checkIfClock();
+
 
 	var currentTime = new Date();
 	time_elapsed = (currentTime - start_time) / 1000;
 
 
 	// TIME's UP?
-	if (timmer <= 0) {
+	if (time_left <= 0) {
 		lblTime.value = 0;
 		if (score >= 100) {
 			gameStatus = 2;
@@ -184,7 +216,7 @@ function checkIfMedication() {
 		var medication_j = index_j * 40 + 20;
 		if (Math.abs(shape.i - medication_i) <= 10 && Math.abs(shape.j - medication_j) <= 10) {
 			if (lives < 5) {
-				lives++;
+				increaseLifeCounter();
 				board[index_i][index_j] = 0;
 			}
 		}
@@ -192,25 +224,69 @@ function checkIfMedication() {
 	}
 }
 
+function checkIfClock(){
+	var shape_indexes = getIndexes(shape.j, shape.i);
+	index_i = shape_indexes[1];
+	index_j = shape_indexes[0];
+
+	if (board[index_i][index_j] == 2) {
+		var clock_i = index_i * 40 + 20;
+		var clock_j = index_j * 40 + 20;
+		if (Math.abs(shape.i - clock_i) <= 10 && Math.abs(shape.j - clock_j) <= 10) {
+			updateTime();
+			board[index_i][index_j] = 0;
+		}
+
+	}
+}
+
+function updateTime(){
+	if (time_left + 10 >= timmer){
+		time_left = timmer;
+	}
+	else {
+		time_left +=10;
+	}
+}
+
 function pacmanMovement() {
 
-	var x = GetKeyPressed();
+	var x = getLastPressed();
 	if (isInMiddle() || (shape.direction == "left" && x == 4) || (shape.direction == "right" && x == 3) || (shape.direction == "up" && x == 2) || (shape.direction == "down" && x == 1)) {
+		var shape_indexes = getIndexes(shape.j, shape.i);
+		let shape_row = shape_indexes[0];
+		let shape_col = shape_indexes[1];
 		if (x == 1) {
-			shape.move = true;
-			shape.direction = "up";
+			if (board[shape_col][shape_row-1] != 4){
+				shape.move = true;
+				shape.direction = "up";
+			}
 		}
 		else if (x == 2) {
-			shape.move = true;
-			shape.direction = "down";
+			if (board[shape_col][shape_row+1] != 4){
+				shape.move = true;
+				shape.direction = "down";
+			}
 		}
 		else if (x == 3) {
-			shape.move = true;
-			shape.direction = "left";
+			if (shape_col-1 <= 0){
+				shape.move = true;
+				shape.direction = "left";
+			}
+			else if (board[shape_col-1][shape_row] != 4){
+				shape.move = true;
+				shape.direction = "left";
+			}
 		}
 		else if (x == 4) {
-			shape.move = true;
-			shape.direction = "right";
+			if (shape_col+1 >= 17){
+				shape.move = true;
+				shape.direction = "right";
+			}
+			else if (board[shape_col+1][shape_row] != 4){
+				shape.move = true;
+				shape.direction = "right";
+			}
 		}
 	}
 	movePacman();
@@ -235,17 +311,16 @@ function checkIfGhost() {
 		var currentMonster = monsters[k];
 		if (check_x_and_y(currentMonster.i, currentMonster.j, shape.i, shape.j)) {
 			if (lives == 1) {
-				lives--;
 				score -= 10;
+				decreaseLifeCounter();
 				gameStatus = 1;
 			}
 			else {
-				gameIsOn = false;
-				resetKeys();
 				score -= 10;
-				lives--;
 				// alert("lost live");
+				resetKeys();
 				resetPositions();
+				decreaseLifeCounter();
 			}
 		}
 	}
@@ -347,27 +422,26 @@ function check_x_and_y(monster_x, monster_y, shape_x, shape_y) {
 }
 
 function resetKeys() {
-	for (var key in keysDown) {
-		keysDown[key] = false;
-	}
+	lastPressed = null;
 }
 
 
 
 function gameLostLives() {
 	gameIsOn = false;
-	// setTimeout(function () { alert("LOSER!!!"); }, 100);
+	setTimeout(function () { alert("LOSER!!!"); }, 100);
 	endGame();
 }
 
 function gameCompleted() {
 	gameIsOn = false;
-	// setTimeout(function () { alert("Winner!!!"); }, 100);
+	setTimeout(function () { alert("Winner!!!"); }, 100);
 	endGame();
 }
 
 function gameLostScore() {
-	// setTimeout(function () { alert("You are better than " + score + " points!") }, 100);
+	gameIsOn = false;
+	setTimeout(function () { alert("You are better than " + score + " points!") }, 100);
 	endGame();
 }
 
@@ -452,50 +526,102 @@ function movePacman() {
 
 function decideMonstersDirection() {
 	for (var k = 0; k < num_of_monsters; k++) {
-		var monster_index_i = Math.floor(monsters[k].i / 40);
-		var monster_index_j = Math.floor(monsters[k].j / 40);
-		var shape_index_i = Math.floor(shape.i / 40);
-		var shape_index_j = Math.floor(shape.j / 40);
-		var minHeuristic = 999999;
-		var minDirection;
-		// try LEFT
-		if (board[monster_index_i - 1][monster_index_j] != 4) {
-			// calculate manhattan distance
-			var manhattan = Math.abs(monster_index_i - 1 - shape_index_i) + Math.abs(monster_index_j - shape_index_j);
-			if (manhattan < minHeuristic) {
-				minHeuristic = manhattan;
-				minDirection = "left";
-			}
+		var randNum = Math.random();
+		if (randNum <= 0.2){
+			// random move
+			randomMove(monsters[k]);
 		}
-		// try UP
-		if (board[monster_index_i][monster_index_j - 1] != 4) {
-			// calculate manhattan distance
-			var manhattan = Math.abs(monster_index_i - shape_index_i) + Math.abs(monster_index_j - 1 - shape_index_j);
-			if (manhattan < minHeuristic) {
-				minHeuristic = manhattan;
-				minDirection = "up";
-			}
+		else {
+			// heuristic move
+			heuristicMove(monsters[k]);
 		}
-		// try RIGHT
-		if (board[monster_index_i + 1][monster_index_j] != 4) {
-			// calculate manhattan distance
-			var manhattan = Math.abs(monster_index_i + 1 - shape_index_i) + Math.abs(monster_index_j - shape_index_j);
-			if (manhattan < minHeuristic) {
-				minHeuristic = manhattan;
-				minDirection = "right";
-			}
-		}
-		// try DOWN
-		if (board[monster_index_i][monster_index_j + 1] != 4) {
-			// calculate manhattan distance
-			var manhattan = Math.abs(monster_index_i - shape_index_i) + Math.abs(monster_index_j + 1 - shape_index_j);
-			if (manhattan < minHeuristic) {
-				minHeuristic = manhattan;
-				minDirection = "down";
-			}
-		}
-		monsters[k].direction = minDirection;
 	}
+}
+
+function randomMove(monster){
+	var found = false;
+	monster_indexes = getIndexes(monster.j, monster.i);
+	monster_row = monster_indexes[0];
+	monster_col = monster_indexes[1];
+	
+	while (!found){
+		var randNum = Math.random();
+		if (randNum <= 0.25){
+			// up
+			if (board[monster_col][monster_row-1] != 4){
+				monster.direction = "up";
+				found = true;
+			}
+		}
+		else if (randNum > 0.25 && randNum <= 0.5){
+			// down
+			if (board[monster_col][monster_row+1] != 4){
+				monster.direction = "down";
+				found = true;
+			}
+		}
+		else if(randNum > 0.5 && randNum <=0.75){
+			// left
+			if (board[monster_col-1][monster_row] != 4){
+				monster.direction = "left";
+				found = true;
+			}
+		}
+		else{
+			// right
+			if (board[monster_col+1][monster_row] != 4){
+				monster.direction = "right";
+				found = true;
+			}
+		}
+	}
+
+}
+
+function heuristicMove(monster){
+	var monster_index_i = Math.floor(monster.i / 40);
+	var monster_index_j = Math.floor(monster.j / 40);
+	var shape_index_i = Math.floor(shape.i / 40);
+	var shape_index_j = Math.floor(shape.j / 40);
+	var minHeuristic = 999999;
+	var minDirection;
+	// try LEFT
+	if (board[monster_index_i - 1][monster_index_j] != 4) {
+		// calculate manhattan distance
+		var manhattan = Math.abs(monster_index_i - 1 - shape_index_i) + Math.abs(monster_index_j - shape_index_j);
+		if (manhattan < minHeuristic) {
+			minHeuristic = manhattan;
+			minDirection = "left";
+		}
+	}
+	// try UP
+	if (board[monster_index_i][monster_index_j - 1] != 4) {
+		// calculate manhattan distance
+		var manhattan = Math.abs(monster_index_i - shape_index_i) + Math.abs(monster_index_j - 1 - shape_index_j);
+		if (manhattan < minHeuristic) {
+			minHeuristic = manhattan;
+			minDirection = "up";
+		}
+	}
+	// try DOWN
+	if (board[monster_index_i][monster_index_j + 1] != 4) {
+		// calculate manhattan distance
+		var manhattan = Math.abs(monster_index_i - shape_index_i) + Math.abs(monster_index_j + 1 - shape_index_j);
+		if (manhattan < minHeuristic) {
+			minHeuristic = manhattan;
+			minDirection = "down";
+		}
+	}
+	// try RIGHT
+	if (board[monster_index_i + 1][monster_index_j] != 4) {
+		// calculate manhattan distance
+		var manhattan = Math.abs(monster_index_i + 1 - shape_index_i) + Math.abs(monster_index_j - shape_index_j);
+		if (manhattan < minHeuristic) {
+			minHeuristic = manhattan;
+			minDirection = "right";
+		}
+	}
+	monster.direction = minDirection;
 }
 
 function moveMonsters() {
@@ -528,4 +654,14 @@ function resetPositions() {
 	setGhosts();
 	monster_turn = 200;
 
+}
+
+function stopGame(){
+	clearInterval(interval);
+	clearInterval(timmer_interval);
+}
+
+function continueGame(){
+	interval = setInterval(UpdatePosition, 1);
+	timmer_interval = setInterval(function () { time_left-- }, 1000);
 }

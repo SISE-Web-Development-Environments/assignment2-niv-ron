@@ -1,4 +1,6 @@
-var chosenMonsters = [];
+var p5Color = "red";
+var p15Color = "blue";
+var p25Color = "yellow";
 var timmer = 60;
 var keys = {
     isCorrect: true,
@@ -33,21 +35,26 @@ $(document).ready(function () {
 function btn_startNewGame() {
     $('.content').css('display', 'none');
     $('#game_grid').css('display', 'block');
-    startNewGame();
     $(document).on(
         'keydown',
         function (event) {
             if (event.key == "Escape") {
+                stopGame();
                 showMenu();
                 show('settings')
             }
-        });
+        }
+    );
+    // init paclive show
+    initLifeCounter();
+    startNewGame();
 }
 
 function returnToGame() {
     if (gameIsOn) {
         $('.content').css('display', 'none');
         $('#game_grid').css('display', 'block');
+        continueGame();
     }
 }
 
@@ -101,11 +108,14 @@ function setGhost(ghostID) {
 }
 
 function setTime(time) {
-    if (time.value < 60) {
-        time.value = 60;
+    if (time < 60) {
+        $("#setTimmer").val(60);
+        
         alert("Time for that mission can't be less than 60 seconds");
-    } else
-        this.timmer = time;
+    } 
+    else{
+        timmer = time;
+    }
 }
 
 function showSettings() {
@@ -118,13 +128,28 @@ function showSettings() {
     // +" ("+user.fname+ " "+user.lname+")";
 }
 
-function updateLifeCounter() {
-    $('#live' + lives).css('display', 'none');
-    this.lives--;
+function initLifeCounter(){
+    $('#live1').css('opacity', '1.0');
+    $('#live2').css('opacity', '1.0');
+    $('#live3').css('opacity', '1.0');
+    $('#live4').css('opacity', '1.0');
+    $('#live5').css('opacity', '1.0');
+}
+
+function decreaseLifeCounter() {
+    $('#live' + lives).css('opacity', '0.0');
+    lives--;
+}
+
+function increaseLifeCounter(){
+    $('#live' + (lives+1)).css('opacity', '1.0');
+    lives++;
 }
 
 function setBalls() {
-
+    p5Color = $('#setp5').val();
+    p15Color = $('#setp15').val();
+    p25Color = $('#setp25').val();
 }
 
 function btnRandom() {
@@ -151,5 +176,15 @@ function btnRandom() {
 
     // set random ghosts number:
     setGhostNumber.value = 1 + (Math.floor(Math.random() * 4));
+}
+
+function setNumOfGhosts(num){
+    if (num >4 || num < 1){
+        $('#setGhostNumber').val(1);
+        alert("The minimum number of ghost is 1 and the maximum is 4");
+    }
+    else{
+        num_of_monsters = num;
+    }
 }
 
