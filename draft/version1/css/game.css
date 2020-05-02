@@ -1,0 +1,39 @@
+#game{
+    border: solid black;
+    background-image: url("../images/mazes_grids/black_red.png");
+    background-size: 720px 520px;
+    background-repeat: no-repeat;
+    
+    width: 720px;
+    height: 520px;
+    margin: auto; 
+     position: absolute;
+    left: 0;
+	right: 0;
+    z-index: 0;
+}
+
+
+.box-left {
+	float: left;
+    width: 200px;
+    background: yellow;
+    position: static;
+    z-index: 0;
+    /* display: none; */
+}
+
+.header-right {
+	float: right;
+    width: 350px;
+    background: cyan;
+    position: static;
+    z-index: 0;
+    left: 0;
+	right: 0;
+}
+
+.gameInfo{
+    width: 50px;
+    height: 50px;
+}

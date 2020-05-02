@@ -35,7 +35,6 @@ function connect(username, password) {
 }
 
 function disconnect() {
-    endGame();
     isConnected = false;
     this.user = '';
     showMenu();

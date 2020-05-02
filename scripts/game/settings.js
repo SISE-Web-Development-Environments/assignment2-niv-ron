@@ -172,17 +172,17 @@ function setBalls() {
 
 function btnRandom() {
     // set random time:
-    let y = Math.floor(Math.random() * 120) + 60;
-    setTimmer.value = y;
-    timmer = y;
+    setTimmer.value = Math.floor(Math.random() * 120) + 60;
 
     // set random balls:
     let colors = ['blue', 'yellow', 'red'];
     let p5 = colors[Math.floor(Math.random() * 3)];
     let p15 = colors[Math.floor(Math.random() * 3)];
+
     while (p5 == p15) {
         p15 = colors[Math.floor(Math.random() * 3)];
     }
+
     let p25;
     for (var i = 0; i < colors.length; i++) {
         if (colors[i] != p5 && colors[i] != p15)
@@ -191,11 +191,10 @@ function btnRandom() {
     setp5.value = p5;
     setp15.value = p15;
     setp25.value = p25;
-    setBalls();
 
-   // set random ghosts number:
-   setGhostNumber.value = 1 + (Math.floor(Math.random() * 4));
-   num_of_monsters = $('#setGhostNumber').val();
+    // set random ghosts number:
+    setGhostNumber.value = 1 + (Math.floor(Math.random() * 4));
+    num_of_monsters = $('#setGhostNumber').val();
 }
 
 function setNumOfGhosts(num) {
