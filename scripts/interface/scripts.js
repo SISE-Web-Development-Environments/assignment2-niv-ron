@@ -57,7 +57,6 @@ function showMenu() {
     }
     else
         $('#btn_returngame').css('display', 'none');
-        
 }
 
 // Disable arrow key scrolling in users browser

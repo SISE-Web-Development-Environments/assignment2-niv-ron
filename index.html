@@ -111,13 +111,13 @@
                     <br><b>Don't forget</b>- you've got a <u>limited time</u> for that mission.
                     <br><b>GOOD LUCK!</b>
                 </div>
-                <table>
+                <div class="row">
                     <td><button type="button" class="btn btn-primary" id="welcome_btn_startgame"
-                            onClick="show('settings')">Start
+                            onClick="show('settings')" style="margin:5px">Start
                             Game</button></td>
-                    <td><button type="button" class="btn btn-primary" id="btn_logoff" onclick="disconnect()">Log
+                    <td><button type="button" class="btn btn-primary" id="btn_logoff" onclick="disconnect()" style="margin:5px">Log
                             Off</button></td>
-                </table>
+                </div>
             </div>
             <!-- WELCOME -->
 
@@ -416,10 +416,10 @@
         <!-- GAME BOARD -->
         <div id="game_grid" class="game">
             <audio id="gametheme" src="./audio/theme.mp3"></audio>
-            <audio id="deaththeme" src="./audio/wasted.mp3"></audio>
+			<audio id="deaththeme" src="./audio/wasted.mp3"></audio>
             <img id="gamelogo" src="images/logo.png">
             <table>
-                <td>
+                <td style="padding-right: 15px;">
                     <div class="box">
                         <div class="playerStatus">
                             <input id="lblName" type="button" style="width: 90%;">
@@ -463,7 +463,7 @@
                     </div>
                 </td>
 
-                <td>
+                <td style="padding-left: 15px;">
                     <div class="box">
                         <!-- <p>Power Pellets</p> -->
                         <table>
