@@ -196,9 +196,9 @@ function drawGhost(monster, id) {
 	else if (id == 1)
 		color = "blue";
 	else if (id ==2)
-		color = "green";
+		color = "orange";
 	else if (id == 3)
-		color = "purple";
+		color = "pink";
 
 	// head:
 	ctx.beginPath();

@@ -16,19 +16,23 @@
 }
 
 .box {
-    width: 245px;
+    width: auto;
+    height: auto;
     margin: auto;
+    margin-bottom: 10px;
+padding: 10px;
     -webkit-box-shadow: 10px 10px 87px 38px rgba(242,239,242,1);
     -moz-box-shadow: 10px 10px 87px 38px rgba(242,239,242,1);
     box-shadow: 10px 10px 87px 38px rgba(242,239,242,1);
     border-radius: 10px;
-    color: white;
+    color: black;
 }
 
 
 .gameInfo{
     width: 80px;
     height: 30px;
+    margin: 0;
 }
 
 table, td{
@@ -43,13 +47,12 @@ table, td{
 }
 
 .gameStatus{
-    background-color: whitesmoke;
+    /* background-color: whitesmoke; */
     font-weight: bolder;
     width: 100px;
-    /* border: solid 2px gray; */
     min-height: 80px;
     margin: auto;
-    padding-top: 10px;
+    /* padding-top: 10px; */
     margin-bottom: 20px;
     text-align: center;
 }
@@ -64,8 +67,8 @@ table, td{
 .playerStatus{
     width: 200px;
     margin: auto;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    /* padding-top: 20px;
+    padding-bottom: 20px; */
     margin-bottom: 20px;
 }
 .showSettings{
@@ -74,4 +77,8 @@ table, td{
     margin:auto;
     color: white;
     font-weight: bolder;
+}
+
+.showPowerPellets{
+    width: 60px;
 }

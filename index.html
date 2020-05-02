@@ -122,7 +122,7 @@
             <!-- WELCOME -->
 
 
-             <!-- PROFILE -->
+            <!-- PROFILE -->
             <!-- username -->
             <div id="profile" class="col">
                 <fieldset disabled>
@@ -388,7 +388,7 @@
         </div>
         <!-- CONTENT -->
 
-        
+
         <!-- ABOUT -->
         <!-- Modal Dialog -->
         <div class="modal fade" id="about" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -423,7 +423,7 @@
                         <div class="playerStatus">
                             <input id="lblName" type="button" style="width: 90%;">
                             <input id="lblLives" type="button" class="gameInfo" style="display: none;">
-                            <div class=lives>
+                            <div>
                                 <table>
                                     <tr>
                                         <td><img src="images/paclive.png" class="img_paclive" id="live1"></td>
@@ -436,48 +436,58 @@
                             </div>
                         </div>
                     </div>
-
-                    <table>
-                        <tr>
-                            <td>
-                                <div class="gameStatus">
-                                    <p>SCORE:</p>
-                                    <input id="lblScore" type="button" class="gameInfo" />
-                                </div>
-                            </td>
-                            <td>
-                                <div class="gameStatus">
-                                    <p>TIME:</p>
-                                    <input id="lblTime" type="button" class="gameInfo" />
-                                </div>
-                            </td>
-                        </tr>
-                    </table>
+                    <div class="box">
+                        <table>
+                            <tr>
+                                <td>
+                                    <div class="gameStatus">
+                                        <p>SCORE:</p>
+                                        <input id="lblScore" type="button" class="gameInfo" />
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="gameStatus">
+                                        <p>TIME:</p>
+                                        <input id="lblTime" type="button" class="gameInfo" />
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
                 </td>
+
                 <td>
                     <div id="game">
                         <canvas class="canvas" id="canvas" width="720" height="520"></canvas>
                     </div>
                 </td>
+
                 <td>
                     <div class="box">
+                        <!-- <p>Power Pellets</p> -->
                         <table>
-                            <tr>
-                                <td>Power Pellets</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Max Time:</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Ghosts:</td>
-                                <td></td>
-                            </tr>
+                            <td><input type="button" id="showp5" class="powerPelletsImg" value="5"></td>
+                            <td><input type="button" id="showp15" class="powerPelletsImg" value="15"></td>
+                            <td><input type="button" id="showp25" class="powerPelletsImg" value="25"></td>
                         </table>
                     </div>
 
-                    <div class="box" style="position: fixed; bottom: 100px;">
+                    <div class="box">
+                        <p>MAX TIME:</p>
+                        <input id="lblMaxTime" type="button" class="gameInfo" />
+                    </div>
+
+                    <div class="box">
+                        <!-- <p>Ghosts</p> -->
+                        <table>
+                            <td><img src="images/ghosts/1.png" id="ghost1" style="width: 50px;"></td>
+                            <td><img src="images/ghosts/2.png" id="ghost2" style="width: 45px;"></td>
+                            <td><img src="images/ghosts/3.png" id="ghost3" style="width: 45px;"></td>
+                            <td><img src="images/ghosts/4.png" id="ghost4" style="width: 55px;"></td>
+                        </table>
+                    </div>
+
+                    <div class="box">
                         <table>
                             <tr>
                                 <td></td>
@@ -495,6 +505,9 @@
             </table>
         </div>
         <!-- GAME BOARD -->
+
+
+
 
 
     </div>

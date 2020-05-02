@@ -110,25 +110,43 @@ function setGhost(ghostID) {
 function setTime(time) {
     if (time < 60) {
         $("#setTimmer").val(60);
-        
+
         alert("Time for that mission can't be less than 60 seconds");
-    } 
-    else{
+    }
+    else {
         timmer = time;
     }
 }
 
 function showSettings() {
+    //keys
     document.getElementById("showkeyleft").style.backgroundImage = "url('./images/keys/" + keys.left + ".png')";
     document.getElementById("showkeyright").style.backgroundImage = "url('./images/keys/" + keys.right + ".png')";
     document.getElementById("showkeyup").style.backgroundImage = "url('./images/keys/" + keys.up + ".png')";
     document.getElementById("showkeydown").style.backgroundImage = "url('./images/keys/" + keys.down + ".png')";
 
+    //player info:
     lblName.value = user.username;
     // +" ("+user.fname+ " "+user.lname+")";
+
+    //ghosts
+    for (var i = 1; i <= 4; i++) {
+        if (i <= num_of_monsters)
+            $('#ghost' + i).css('display', 'block');
+        else
+            $('#ghost' + i).css('display', 'none');
+    }
+
+    //max time
+    lblMaxTime.value = timmer;
+    //power
+    document.getElementById("showp5").style.backgroundImage = "url('./images/powerPellets/" + p5Color + ".png')";
+    document.getElementById("showp15").style.backgroundImage = "url('./images/powerPellets/" + p15Color + ".png')";
+    document.getElementById("showp25").style.backgroundImage = "url('./images/powerPellets/" + p25Color + ".png')";
+ 
 }
 
-function initLifeCounter(){
+function initLifeCounter() {
     $('#live1').css('opacity', '1.0');
     $('#live2').css('opacity', '1.0');
     $('#live3').css('opacity', '1.0');
@@ -141,8 +159,8 @@ function decreaseLifeCounter() {
     lives--;
 }
 
-function increaseLifeCounter(){
-    $('#live' + (lives+1)).css('opacity', '1.0');
+function increaseLifeCounter() {
+    $('#live' + (lives + 1)).css('opacity', '1.0');
     lives++;
 }
 
@@ -178,12 +196,12 @@ function btnRandom() {
     setGhostNumber.value = 1 + (Math.floor(Math.random() * 4));
 }
 
-function setNumOfGhosts(num){
-    if (num >4 || num < 1){
+function setNumOfGhosts(num) {
+    if (num > 4 || num < 1) {
         $('#setGhostNumber').val(1);
         alert("The minimum number of ghost is 1 and the maximum is 4");
     }
-    else{
+    else {
         num_of_monsters = num;
     }
 }
