@@ -10,6 +10,7 @@ var time_elapsed;
 var interval;
 var gameStatus;
 var time_left;
+var isSleep;
 
 // pacman movement
 var lastPressed;
@@ -46,7 +47,7 @@ function playTheme() {
 	document.getElementById('gametheme').volume = 0.2;
 }
 function stopTheme() {
-	document.getElementById('gametheme').pause();
+	document.getElementById('gametheme').stop();
 }
 
 
@@ -54,6 +55,7 @@ function stopTheme() {
 function endGame() {
 	showMenu();
 	clearInterval(interval);
+	clearInterval(timmer_interval);
 	setTimeout(stopTheme(), 500);
 }
 
@@ -73,6 +75,7 @@ function startNewGame() {
 	start_time = new Date();
 	gameStatus = 0;
 	time_left = timmer;
+	isSleep = false;
 	
 
 	// pacman
@@ -202,8 +205,9 @@ function UpdatePosition() {
 			gameStatus = 3;
 		}
 	}
-
-	draw();
+	if (!isSleep){
+		draw();
+	}
 }
 
 function checkIfMedication() {
@@ -218,6 +222,10 @@ function checkIfMedication() {
 			if (lives < 5) {
 				increaseLifeCounter();
 				board[index_i][index_j] = 0;
+				var medicationAudio = new Audio("./audio/medication.mp3");
+				medicationAudio.volume = 0.2;
+				medicationAudio.currentTime=0;
+				medicationAudio.play();
 			}
 		}
 
@@ -235,6 +243,10 @@ function checkIfClock(){
 		if (Math.abs(shape.i - clock_i) <= 10 && Math.abs(shape.j - clock_j) <= 10) {
 			updateTime();
 			board[index_i][index_j] = 0;
+			var clockAudio = new Audio("./audio/clock.mp3");
+			clockAudio.volume = 0.2;
+			clockAudio.currentTime=0;
+			clockAudio.play();
 		}
 
 	}
@@ -301,6 +313,10 @@ function checkIfFood() {
 		if (isInMiddle()) {
 			score += board[shape_col][shape_row];
 			board[shape_col][shape_row] = 0;
+			var eatAudio = new Audio("./audio/woosh.mp3");
+			eatAudio.volume = 1;
+			eatAudio.currentTime=0;
+			eatAudio.play();
 		}
 	}
 }
@@ -310,6 +326,7 @@ function checkIfGhost() {
 	for (var k = 0; k < num_of_monsters; k++) {
 		var currentMonster = monsters[k];
 		if (check_x_and_y(currentMonster.i, currentMonster.j, shape.i, shape.j)) {
+			$('#deaththeme')[0].play();
 			if (lives == 1) {
 				score -= 10;
 				decreaseLifeCounter();
@@ -317,6 +334,8 @@ function checkIfGhost() {
 			}
 			else {
 				score -= 10;
+				stopGame();
+				setTimeout(continueGame, 2000);
 				// alert("lost live");
 				resetKeys();
 				resetPositions();
@@ -332,6 +351,10 @@ function checkIfCherry() {
 		if (check_x_and_y(cherry.i + 7, cherry.j + 7, shape.i, shape.j)) {
 			score += 50;
 			cherry.eaten = true;
+			var eatAudio = new Audio("./audio/eat.wav");
+			eatAudio.volume = 0.2;
+			eatAudio.currentTime=0;
+			eatAudio.play();
 		}
 	}
 }
@@ -659,9 +682,11 @@ function resetPositions() {
 function stopGame(){
 	clearInterval(interval);
 	clearInterval(timmer_interval);
+	isSleep = true;
 }
 
 function continueGame(){
 	interval = setInterval(UpdatePosition, 1);
 	timmer_interval = setInterval(function () { time_left-- }, 1000);
+	isSleep = false;
 }

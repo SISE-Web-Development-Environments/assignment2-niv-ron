@@ -180,11 +180,9 @@ function btnRandom() {
     let colors = ['blue', 'yellow', 'red'];
     let p5 = colors[Math.floor(Math.random() * 3)];
     let p15 = colors[Math.floor(Math.random() * 3)];
-
     while (p5 == p15) {
         p15 = colors[Math.floor(Math.random() * 3)];
     }
-
     let p25;
     for (var i = 0; i < colors.length; i++) {
         if (colors[i] != p5 && colors[i] != p15)
@@ -196,9 +194,8 @@ function btnRandom() {
     setBalls();
 
    // set random ghosts number:
-   let x = 1 + (Math.floor(Math.random() * 4));
-   setGhostNumber.value = x;
-   num_of_monsters = x;
+   setGhostNumber.value = 1 + (Math.floor(Math.random() * 4));
+   num_of_monsters = $('#setGhostNumber').val();
 }
 
 function setNumOfGhosts(num) {
