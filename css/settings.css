@@ -100,8 +100,8 @@
 
 .setSettings{
     border: 0.5px solid gainsboro;
-    width: 100%;
-    margin-bottom: 2px;
+    width: auto;
+    /* margin-bottom: 2px; */
 }
 
 .powerPelletsImg{
