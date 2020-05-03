@@ -1,5 +1,6 @@
 # assignment2-niv-ron
-assignment2-niv-ron created by GitHub Classroom
+## Functionalities:
+* Medicines, Clock
 ## Details:
 * Names: Ron Israel , Niv Goldshlager
 * IDs: 203243977, 208082586
