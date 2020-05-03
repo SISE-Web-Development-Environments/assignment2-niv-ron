@@ -32,7 +32,7 @@ var medicationImg;
 // clock
 var clockImg;
 
-var food_remain;
+var food_remain = 90;
 var lives;
 const rows = 13;
 const cols = 18;
