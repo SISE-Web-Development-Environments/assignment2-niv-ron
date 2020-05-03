@@ -51,7 +51,7 @@ table, td{
     min-height: 80px;
     margin: auto;
     /* padding-top: 10px; */
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
     text-align: center;
 }
 
@@ -67,7 +67,7 @@ table, td{
     margin: auto;
     /* padding-top: 20px;
     padding-bottom: 20px; */
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
 }
 .showSettings{
     width: 200px;
