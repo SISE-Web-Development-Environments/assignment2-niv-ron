@@ -216,8 +216,8 @@ function setNumOfGhosts(num) {
 
 function setNumOfBalls(num){
     if (num > 90 || num < 50) {
-        $('#setBallsNumber').val(1);
-        alert("The minimum number of Power Pellets is 1 and the maximum is 4");
+        $('#setBallsNumber').val(50);
+        alert("The minimum number of Power Pellets is 50 and the maximum is 90");
     }
     else {
         food_remain = num;
