@@ -49,6 +49,10 @@
 
 <body>
     <div class="allSite">
+        <div style="color: white;">
+            Niv Goldshlager & Ron Israel
+        </div>
+
         <div class="content">
             <div class="top">
                 <img src="images/logo.png">
@@ -115,7 +119,8 @@
                     <td><button type="button" class="btn btn-primary" id="welcome_btn_startgame"
                             onClick="show('settings')" style="margin:5px">Start
                             Game</button></td>
-                    <td><button type="button" class="btn btn-primary" id="btn_logoff" onclick="disconnect()" style="margin:5px">Log
+                    <td><button type="button" class="btn btn-primary" id="btn_logoff" onclick="disconnect()"
+                            style="margin:5px">Log
                             Off</button></td>
                 </div>
             </div>
@@ -313,7 +318,8 @@
                                             <div>
                                                 <span>Power Pellets:</span>
                                                 <input type="number" id="setBallsNumber" min="50" max="90" value="90"
-                                                    onchange="setNumOfBalls($('#setBallsNumber').val());" style="width: 70px;">
+                                                    onchange="setNumOfBalls($('#setBallsNumber').val());"
+                                                    style="width: 70px;">
                                             </div>
                                             <td><label>5 points</label>
                                                 <select class="form-control" id="setp5" onchange="setBalls()">
@@ -421,7 +427,7 @@
         <!-- GAME BOARD -->
         <div id="game_grid" class="game">
             <audio id="gametheme" src="./audio/theme.mp3"></audio>
-			<audio id="deaththeme" src="./audio/wasted.mp3"></audio>
+            <audio id="deaththeme" src="./audio/wasted.mp3"></audio>
             <img id="gamelogo" src="images/logo.png">
             <table>
                 <td style="padding-right: 15px;">
