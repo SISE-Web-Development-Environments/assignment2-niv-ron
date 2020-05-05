@@ -42,6 +42,8 @@ function showMenu() {
         $('#btn_logoff').css('display', 'block');
         $('#welcome_msg').html('Welcome <b>' + user.fname + '!</b>');
         $('#welcome_btn_startgame').css('display', 'block');
+        $('#welcome_btn_login').css('display', 'none');
+        $('#welcome_btn_register').css('display', 'none');
         show('profile');
     } else {
         $('#menu1').css('display', 'block');
@@ -49,6 +51,8 @@ function showMenu() {
         $('#btn_logoff').css('display', 'none');
         $('#welcome_msg').html('Welcome!');
         $('#welcome_btn_startgame').css('display', 'none');
+        $('#welcome_btn_login').css('display', 'block');
+        $('#welcome_btn_register').css('display', 'block');
         show('welcome');
     }
     if (gameIsOn){

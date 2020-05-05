@@ -17,6 +17,7 @@
     <link rel="stylesheet" type="text/css" href="css/settings.css" />
     <link rel="stylesheet" type="text/css" href="css/game.css" />
     <link rel="stylesheet" type="text/css" href="css/footer.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <script src="scripts/jquery-3.4.1.slim.min.js"></script>
 
@@ -113,7 +114,18 @@
                     <br> Each of the four ghosts have <u>artificial intelligence</u> - so <b>be carefully!</b>
                     <br> Don't miss the <i>Moving Score</i> - you can get 50 points more!
                     <br><b>Don't forget</b>- you've got a <u>limited time</u> for that mission.
+                    <br><b>*You can always press <i>ESC</i> in order to stop or restart</b>
                     <br><b>GOOD LUCK!</b>
+                </div>
+                <div class="row">
+                    <td>
+                        <button type="button" class="btn btn-primary" id="welcome_btn_login" 
+                            onClick="show('login')" style="margin:5px;">Login</button>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-primary" id="welcome_btn_register"
+                            onClick="show('register')" style="margin:5px;">Register</button>
+                    </td>
                 </div>
                 <div class="row">
                     <td><button type="button" class="btn btn-primary" id="welcome_btn_startgame"
@@ -415,6 +427,7 @@
                     <div class="modal-body">
                         <p>This game created by Ron Israel and Niv Goldshlager.</p>
                         <p>We used jQuery plugins for validation and date picker on register and login forms.</p>
+                        <p>We had no difficulties during the work</p>
                         <img src="./images/gifs/1.gif" style="width: 300px; border-radius: 14px;">
                     </div>
                 </div>
@@ -530,7 +543,8 @@
     <footer>
         <span>© This project is one of the assignments in Web Development Environments course of BGU
             UNIVERSITY - April 2020.<br></span>
-        <a href="mailto:niv_ron@pac-man.com">contact us!</a>
+        <span>Githubs: <span>Niv Goldshlager: <a href="https://github.com/nivgold"> <i class="fa fa-github"></i></a></span>,  Ron Israel: <a href="https://github.com/waz11"> <i class="fa fa-github"></i></a></span>
+        <a style="padding-left: 25px;" href="mailto:niv_ron@pac-man.com">contact us!</a>
     </footer>
     <!-- FOOTER -->
 
